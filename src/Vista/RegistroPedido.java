@@ -244,7 +244,6 @@ public final class RegistroPedido extends javax.swing.JFrame{
         //clases
         SimpleDateFormat formatofecha=new SimpleDateFormat("dd/MM/YY HH:mm:ss");
         //generar los datos necesarios para el registro
-        idempleado=25836914;
         String clientesplit=String.valueOf(combocliente.getSelectedItem());
         String mezasplit=String.valueOf(combomesa.getSelectedItem());
         //validar que los datos no sean nulos
@@ -258,11 +257,12 @@ public final class RegistroPedido extends javax.swing.JFrame{
                 //separar datos
                 String cliente = clientesplit.split(" - ")[1];
                 String meza = mezasplit.split(" - ")[0];
+                int idpedido=consulta.generarIdPedido();
                 //Registrar peido
-                //consulta.registarpedido(consulta.generarIdPedido(),idempleado, consulta.idClientexDni(cliente), formatofecha.format(fecha), meza);
-                //RegistroPedidoLista Registro = new RegistroPedidoLista();
-                //Registro.setVisible(true);
-                //dispose();
+                consulta.registarpedido(idpedido,idempleado, consulta.idClientexDni(cliente), formatofecha.format(fecha), meza);
+                RegistroPedidoLista Registro = new RegistroPedidoLista(idpedido,clientesplit.split(" - ")[0] ,mezasplit);
+                Registro.setVisible(true);
+                dispose();
                 timer.cancel();  
             }
  
