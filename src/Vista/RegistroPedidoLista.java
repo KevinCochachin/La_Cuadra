@@ -342,9 +342,9 @@ public class RegistroPedidoLista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnagregarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
-        int idlista=Integer.parseInt(TablaLista.getValueAt(TablaLista.getSelectedRow(), -1).toString());
-        System.out.println(idlista);
-        //consulta.eliminarlistapedido(idlista);
+        String idlista=TablaLista.getValueAt(TablaLista.getSelectedRow(), 0).toString();
+        consulta.eliminarlistapedido(Integer.parseInt(idlista));
+        consulta.llenartablalista(idpedid, TablaLista);
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void TablaListaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaListaMousePressed
@@ -384,7 +384,7 @@ public class RegistroPedidoLista extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegistroPedidoLista(0, "Sin Asignar", "Sin Asignar").setVisible(true);
+                new RegistroPedidoLista(100000005, "Sin Asignar", "Sin Asignar").setVisible(true);
             }
         });
     }
