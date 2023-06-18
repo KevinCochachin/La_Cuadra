@@ -237,8 +237,9 @@ public class Login extends javax.swing.JFrame {
                         Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
                     }   break;
                 case 13:
-                    Mesero Mesero=new Mesero();
-                    Mesero.setVisible(true);
+                    Mesero mesero;
+                    mesero = new Mesero(consulta.loginobteneridempleado(correo),consulta.loginobtenertipoempleado(correo),consulta.loginobteneridtipoempleado(correo));
+                    mesero.setVisible(true);
                     dispose();
                     break;
                 default:

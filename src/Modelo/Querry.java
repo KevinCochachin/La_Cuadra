@@ -16,6 +16,8 @@ import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class Querry extends ConexionMysql {
 
@@ -487,6 +489,208 @@ public class Querry extends ConexionMysql {
         }
 
         return rs;
+    }
+    
+     
+    
+    //Mesero
+    public ResultSet Buscarclien(String dato,int idempleado) {
+        conectarBDD();
+        try {
+            statement = conexion.createStatement();
+            String query = "SELECT * FROM lista JOIN pedido ON lista.idPedido=pedido.idPedido JOIN producto ON lista.idProducto=producto.idProducto JOIN cliente ON cliente.idCliente=pedido.idCliente JOIN empleados ON lista.idEncargado=empleados.idEmpleado JOIN estado_pedido ON estado_pedido.idEstado=lista.Estado WHERE (pedido.idCliente LIKE '%" + dato + "%' OR cliente.Nombre LIKE '%" + dato + "%') AND (pedido.idEmpleado_Mesero='"+idempleado+"');";
+            rs = statement.executeQuery(query);
+        } catch (SQLException e) {
+        }
+
+        return rs;
+    }
+
+//Vista Administrador
+    //Mostar Datos de Pedidos
+    public ResultSet mostrarDatosPedidos(int idempleado) {
+        conectarBDD();
+        try {
+            st = conexion.createStatement();
+            String query = "SELECT * FROM lista JOIN pedido JOIN producto on lista.idProducto=producto.idProducto and lista.idPedido=pedido.idPedido WHERE lista.idEncargado=10000000 OR lista.idEncargado='" + idempleado + "'";
+            rs = st.executeQuery(query);
+        } catch (SQLException e) {
+        }
+
+        return rs;
+    }
+    
+   //Registro Pedidos
+    //consultar si existe ese idpedido
+    public int consultarIdPedido(int idpedido) {
+        conectarBDD();
+        int cant = -1;
+        try {
+            st = conexion.createStatement();
+            String query = "Select COUNT(idPedido) from pedido where pedido.idPedido='" + idpedido + "'";
+            rs = st.executeQuery(query);
+            if (rs.next()) {
+                cant = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+        }
+        return cant;
+    }
+    //Crear idpedido
+    public int generarIdPedido (){
+        conectarBDD();
+        int idpedido=0;
+        try {
+            st=conexion.createStatement();
+            String querry="SELECT MAX(pedido.idPedido) FROM pedido";
+            rs=st.executeQuery(querry);
+            if (rs.next()) {
+                idpedido=rs.getInt(1);
+            }
+        } catch (SQLException e) {
+        }
+        idpedido+=1;
+        while (consultarIdPedido(idpedido)!=0) {
+            idpedido+=1;
+        } 
+        return idpedido;
+    }
+    
+    //Listar cliente
+    public void llenarClientesCombo(JComboBox clientes, String buscar){
+        conectarBDD();
+        try {
+            st=conexion.createStatement();
+            String query="SELECT * FROM cliente WHERE (Nombre LIKE '%"+buscar+"%')OR (Apellido LIKE'%"+buscar+"%') OR (Dni LIKE '%"+buscar+"%')";
+            rs=st.executeQuery(query);
+            while (rs.next()) {
+                
+               clientes.addItem(rs.getString(2)+" "+rs.getString(3)+" - "+rs.getString(4));
+            }
+        } catch (SQLException e) {
+        }
+    }
+    //consultar idcliente por dni
+    
+    public int idClientexDni(String dni){
+        conectarBDD();
+        int idCliente=0;
+        try {
+            st=conexion.createStatement();
+            String query="SELECT idCliente FROM cliente WHERE Dni='"+dni+"'";
+            rs=st.executeQuery(query);
+            while (rs.next()) {
+                idCliente=rs.getInt(1);
+            }
+        } catch (SQLException e) {
+        }
+        return idCliente;
+    }
+    //Listar mesa
+    public void llenarMesaCombo(JComboBox clientes){
+        conectarBDD();
+        clientes.addItem("Seleccionar ..");
+        try {
+            st=conexion.createStatement();
+            String query="SELECT * FROM mesa";
+            rs=st.executeQuery(query);
+            while (rs.next()) {
+                
+               clientes.addItem(rs.getString(1)+" - "+rs.getString(2));
+            }
+        } catch (SQLException e) {
+        }
+    }
+    //Registrar Pedido
+    public void registarpedido(int idpedido,int idmozo,int idcliente,String Fecha,String meza){
+        conectarBDD();
+        try {
+            st=conexion.createStatement();
+            String query="INSERT INTO pedido VALUES ('"+idpedido+"', '"+idmozo+"', '"+idcliente+"', '"+Fecha+"', '"+meza+"')";
+            st.executeUpdate(query);
+            JOptionPane.showMessageDialog(null, "Registro exitoso de peido con id: "+idpedido);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error "+idpedido+"    "+e);
+        }
+    }
+
+    //listar tabla
+    public void llenartablalista(int idpedido,JTable tabla){
+       //crear tabla
+       DefaultTableModel modelo= new DefaultTableModel();
+       modelo.addColumn("IdLista");
+       modelo.addColumn("Plato");
+       modelo.addColumn("Cant.");
+       modelo.addColumn("Descripcion");
+       tabla.setModel(modelo);
+       //aray para los datos
+       String datos[]=new String[4];
+       //cosultar datos
+        conectarBDD();
+        try {
+            st=conexion.createStatement();
+            String query="SELECT lista.idLista,producto.Nombre,lista.Cantidad,lista.Descripcion FROM lista JOIN producto ON lista.idProducto=producto.idProducto WHERE lista.idPedido='"+idpedido+"'";
+            rs=st.executeQuery(query);
+            while (rs.next()) {
+                //idlista
+                datos[0]=rs.getString(1);
+                //plato
+                datos[1]=rs.getString(2);
+                //cantidad
+                datos[2]=rs.getString(3);
+                //descripcion
+                datos[3]=rs.getString(4);
+                modelo.addRow(datos);
+            }
+        } catch (SQLException e) {
+            
+        }
+    
+    }
+    //buscar tipo por nombre
+    public int idtipoProducto(String nombre){
+        conectarBDD();
+        int idTipo=0;
+        try {
+            st=conexion.createStatement();
+            String query="SELECT idTipo_Producto FROM Tipo_Producto WHERE Nombre='"+nombre+"'";
+            rs=st.executeQuery(query);
+            while (rs.next()) {
+                idTipo=rs.getInt(1);
+            }
+        } catch (SQLException e) {
+        }
+        return idTipo;
+    }
+    
+    //Listar Productos
+    public void llenarComboProductos(String tipo,String busqueda,JComboBox producto){
+        conectarBDD();
+        try {
+            st=conexion.createStatement();
+            String query="SELECT * FROM producto WHERE idTipo_Producto LIKE '%"+tipo+"%' AND (Nombre LIKE '%"+busqueda+"%' OR idProducto LIKE '%"+busqueda+"%')";
+            rs=st.executeQuery(query);
+            while (rs.next()) {
+               producto.addItem(rs.getString(1)+" - "+rs.getString(3));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error "+e);
+        }
+    }
+    
+    //Listar Tipo Productos
+    public void llenarComboTipoProductos(JComboBox producto){
+        conectarBDD();
+        producto.addItem("Todos");
+        try {
+            st=conexion.createStatement();
+            String query="SELECT * FROM Tipo_Producto";
+            rs=st.executeQuery(query);
+            while (rs.next()) {
+               producto.addItem(rs.getString(2));
+            }
+        } catch (SQLException e) {
+        }
     }
 }
 
