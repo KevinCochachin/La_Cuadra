@@ -298,6 +298,7 @@ public class RegistroPedidoLista extends javax.swing.JFrame {
     }//GEN-LAST:event_txtdescripcionActionPerformed
 
     private void btnregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarActionPerformed
+        
         dispose();
     }//GEN-LAST:event_btnregistrarActionPerformed
 
