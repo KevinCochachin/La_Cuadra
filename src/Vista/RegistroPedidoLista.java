@@ -342,7 +342,7 @@ public class RegistroPedidoLista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnagregarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
-        int idlista=Integer.parseInt(TablaLista.getValueAt(TablaLista.getSelectedRow(), 1).toString());
+        int idlista=Integer.parseInt(TablaLista.getValueAt(TablaLista.getSelectedRow(), 0).toString());
         consulta.eliminarlistapedido(idlista);
     }//GEN-LAST:event_btneliminarActionPerformed
 
