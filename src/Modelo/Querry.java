@@ -489,7 +489,7 @@ public class Querry extends ConexionMysql {
         conectarBDD();
         try {
             statement = conexion.createStatement();
-            String query = "SELECT * FROM lista JOIN pedido ON lista.idPedido=pedido.idPedido JOIN producto ON lista.idProducto=producto.idProducto JOIN cliente ON cliente.idCliente=pedido.idCliente JOIN empleados ON lista.idEncargado=empleados.idEmpleado JOIN estado_pedido ON estado_pedido.idEstado=lista.Estado WHERE (pedido.idCliente LIKE '%" + dato + "%' OR cliente.Nombre LIKE '%" + dato + "%') AND (pedido.idEmpleado_Mesero='" + idempleado + "');";
+            String query = "SELECT * FROM lista JOIN pedido ON lista.idPedido=pedido.idPedido JOIN producto ON lista.idProducto=producto.idProducto JOIN cliente ON cliente.idCliente=pedido.idCliente JOIN empleados ON lista.idEncargado=empleados.idEmpleado JOIN estado_pedido ON estado_pedido.idEstado=lista.Estado WHERE (pedido.idCliente LIKE '%" + dato + "%' OR cliente.Nombre LIKE '%" + dato + "%') AND (pedido.idEmpleado_Mesero='" + idempleado + "') ORDER BY idLista ASC;";
             rs = statement.executeQuery(query);
         } catch (SQLException e) {
         }
