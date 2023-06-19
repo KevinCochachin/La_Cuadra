@@ -3,6 +3,7 @@ package Modelo;
 
 
 public class Empleados {
+    //Ayuda
     private int tipo_empleado;
     private String nombre;
     private String apellido;
