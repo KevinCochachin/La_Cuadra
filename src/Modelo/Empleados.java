@@ -10,7 +10,7 @@ public class Empleados {
     private String coreo;
     private String contraseña;
     private int id;
-    private int contador;
+    
 
     public Empleados(int tipo_empleado, String nombre, String apellido, int dni, String coreo, String contraseña) {
         this.tipo_empleado = tipo_empleado;
