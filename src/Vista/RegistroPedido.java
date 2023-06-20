@@ -123,10 +123,15 @@ public final class RegistroPedido extends javax.swing.JFrame{
         jLabel6.setText("Buscar cliente");
 
         combomesa.setEditable(true);
+        combomesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combomesaActionPerformed(evt);
+            }
+        });
 
         busquedacliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/consulta.png"))); // NOI18N
         busquedacliente.setLabelFor(combocliente);
-        busquedacliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        busquedacliente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         busquedacliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 busquedaclienteMousePressed(evt);
@@ -284,6 +289,10 @@ public final class RegistroPedido extends javax.swing.JFrame{
     private void buscarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarclienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buscarclienteActionPerformed
+
+    private void combomesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combomesaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combomesaActionPerformed
 
     /**
      * @param args the command line arguments

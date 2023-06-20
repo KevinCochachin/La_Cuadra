@@ -25,7 +25,6 @@ public class Mesero extends javax.swing.JFrame {
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/Icon.png")).getImage());
         this.setTitle("Mesero");
         this.setLocationRelativeTo(null);
-        GenerarPedido.setEnabled(false);
         Resultadobusqueda("");
         query.Banner(banner, idEmpleado, NombreVentana);
     }
@@ -78,8 +77,8 @@ public class Mesero extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        GenerarPedido = new javax.swing.JButton();
+        NuevoPedido = new javax.swing.JButton();
+        GenerarBoleta = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
@@ -107,23 +106,23 @@ public class Mesero extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Nuevo Pedido");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        NuevoPedido.setBackground(new java.awt.Color(0, 0, 0));
+        NuevoPedido.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        NuevoPedido.setForeground(new java.awt.Color(255, 255, 255));
+        NuevoPedido.setText("Nuevo Pedido");
+        NuevoPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                NuevoPedidoActionPerformed(evt);
             }
         });
 
-        GenerarPedido.setBackground(new java.awt.Color(0, 0, 0));
-        GenerarPedido.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        GenerarPedido.setForeground(new java.awt.Color(255, 255, 255));
-        GenerarPedido.setText("Generar Boleta");
-        GenerarPedido.addActionListener(new java.awt.event.ActionListener() {
+        GenerarBoleta.setBackground(new java.awt.Color(0, 0, 0));
+        GenerarBoleta.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        GenerarBoleta.setForeground(new java.awt.Color(255, 255, 255));
+        GenerarBoleta.setText("Generar Boleta");
+        GenerarBoleta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GenerarPedidoActionPerformed(evt);
+                GenerarBoletaActionPerformed(evt);
             }
         });
 
@@ -214,9 +213,9 @@ public class Mesero extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(NuevoPedido)
                                 .addGap(12, 12, 12)
-                                .addComponent(GenerarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(GenerarBoleta, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -248,8 +247,8 @@ public class Mesero extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(GenerarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(NuevoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(GenerarBoleta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -279,14 +278,16 @@ public class Mesero extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void NuevoPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoPedidoActionPerformed
         RegistroPedido registro=new RegistroPedido(idInciado);
         registro.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_NuevoPedidoActionPerformed
 
-    private void GenerarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarPedidoActionPerformed
+    private void GenerarBoletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarBoletaActionPerformed
+        Facturacion fact= new Facturacion();
+        fact.setVisible(true);
         
-    }//GEN-LAST:event_GenerarPedidoActionPerformed
+    }//GEN-LAST:event_GenerarBoletaActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         String dato=Txtdato.getText();
@@ -351,13 +352,13 @@ public class Mesero extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton GenerarPedido;
+    private javax.swing.JButton GenerarBoleta;
+    private javax.swing.JButton NuevoPedido;
     public javax.swing.JTable Tabla;
     private javax.swing.JTextField Txtdato;
     private javax.swing.JLabel banner;
     private javax.swing.JButton bntActualizarTabla;
     private javax.swing.JTextField btnCerrarSecion;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

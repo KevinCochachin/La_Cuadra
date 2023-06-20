@@ -17,6 +17,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class Querry extends ConexionMysql {
@@ -349,6 +350,20 @@ public class Querry extends ConexionMysql {
         }
 
         return rs;
+    }
+    
+     public void LlenarNombresCli(JTextField clientes, String buscar) {
+        conectarBDD();
+        try {
+            st = conexion.createStatement();
+            String query = "SELECT * FROM cliente WHERE (Dni LIKE '%" + buscar + "%')";
+            rs = st.executeQuery(query);
+            while (rs.next()) {
+
+                clientes.setText(rs.getString(2) + " " + rs.getString(3));
+            }
+        } catch (SQLException e) {
+        }
     }
     
     
