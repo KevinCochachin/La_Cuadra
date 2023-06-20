@@ -4,7 +4,7 @@
  */
 package Controlador;
 
-import Vista.Adm_RegistroProducts;
+import Vista.Adm_ListaProducto;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,19 +14,28 @@ import java.awt.event.ActionListener;
  */
 public class Controlador_RegistroProducto implements ActionListener{
     
-    Adm_RegistroProducts Adm_rp;
+    Adm_ListaProducto Adm_rp;
     
-    public Controlador_RegistroProducto(Adm_RegistroProducts Adm_rp){
+    public Controlador_RegistroProducto(Adm_ListaProducto Adm_rp){
         this.Adm_rp=Adm_rp;
-        this.Adm_rp.btnagregar2.addActionListener(this);
+        this.Adm_rp.btnagregar1.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==Adm_rp){
-            System.out.println("OK");
+        if(e.getSource()==Adm_rp.btnagregar1){
+            limpiarentradas();
+            
         }
         
+    }
+
+    private void limpiarentradas() {
+        Adm_rp.txtID.setText("");
+        Adm_rp.txtProducto.setText("");
+        Adm_rp.txtPrecio.setText("");
+        Adm_rp.txtTiempo.setText("");
+        Adm_rp.Combobox.setSelectedItem("");
     }
 
    
