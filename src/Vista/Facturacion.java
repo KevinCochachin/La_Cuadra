@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class Facturacion extends javax.swing.JFrame {
     Factura f = new Factura();
     Querry dao = new Querry();
-//    Factura f = new Factura();
+    
     
     public Facturacion() {
         
@@ -26,6 +26,8 @@ public class Facturacion extends javax.swing.JFrame {
         this.setTitle("FACTURA");
         this.setLocationRelativeTo(null);
         Resultadobusqueda("","");
+        int num=dao.generarIdFactura();
+       txtNumero.setText(String.valueOf(num));
         
     }
 
@@ -33,12 +35,13 @@ public class Facturacion extends javax.swing.JFrame {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("idPedido");
         modelo.addColumn("idProducto");
+        modelo.addColumn("idCliente");
         modelo.addColumn("Descripcion");
         modelo.addColumn("Cantidad");
         modelo.addColumn("Precio");
         Tabla.setModel(modelo);
         //Clasequery
-        String[] datos = new String[5];
+        String[] datos = new String[6];
         Querry qr = new Querry();
         try {
             ResultSet rs=qr.BuscarFac(dato,date);
@@ -47,12 +50,14 @@ public class Facturacion extends javax.swing.JFrame {
             datos[0] = rs.getString(2);
             //idProducto
             datos[1] = rs.getString(13);
+            //idCliente
+            datos[2] = rs.getString(18);
             //Descripcion
-            datos [2] = rs.getString(15);
+            datos [3] = rs.getString(15);
              //cantidad
-            datos[3] = rs.getString(4);
+            datos[4] = rs.getString(4);
              //Precio
-            datos[4] = rs.getString(16);
+            datos[5] = rs.getString(16);
              
             modelo.addRow(datos);
             }   
@@ -61,6 +66,7 @@ public class Facturacion extends javax.swing.JFrame {
         SubTotal();
         IGV();
         MontoTotal();
+        txtIdped.setText(Tabla.getValueAt(0, 0).toString());
     }
     
     
@@ -70,8 +76,8 @@ public class Facturacion extends javax.swing.JFrame {
          SubTotal = 0.00;
         int numFila = Tabla.getRowCount();
         for (int i = 0; i < numFila; i++) {
-            double pre = Double.parseDouble(String.valueOf(Tabla.getModel().getValueAt(i, 4)));
-            double cant = Double.parseDouble(String.valueOf(Tabla.getModel().getValueAt(i, 3)));
+            double pre = Double.parseDouble(String.valueOf(Tabla.getModel().getValueAt(i, 5)));
+            double cant = Double.parseDouble(String.valueOf(Tabla.getModel().getValueAt(i, 4)));
             SubTotal = SubTotal + (pre*cant);
         }
         txtSub.setText(String.format("%.2f", SubTotal));
@@ -164,6 +170,8 @@ public class Facturacion extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel9.setText("Observaciones:");
 
+        txtNumero.setEditable(false);
+
         jLabel11.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel11.setText("Santa Luisa 265 | San Isidro");
 
@@ -204,7 +212,7 @@ public class Facturacion extends javax.swing.JFrame {
 
             },
             new String [] {
-                "idPedido", "idProducto", "Descripcion", "Cantidad", "Precio"
+                "idPedido", "idProducto", "idCliente", "Descripcion", "Cantidad", "Precio"
             }
         ));
         Tabla.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -475,9 +483,7 @@ public class Facturacion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void TablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaMouseClicked
-        int filaseleccionada=Tabla.rowAtPoint(evt.getPoint());
         
-        txtIdped.setText(Tabla.getValueAt(filaseleccionada, 0).toString());
         
     }//GEN-LAST:event_TablaMouseClicked
     
@@ -486,10 +492,12 @@ public class Facturacion extends javax.swing.JFrame {
         
         String dir =txtDireccion.getText();
         String obs=txtObservaciones.getText();
-        int idFac=Integer.parseInt(txtNumero.getText());
+        int idFac=dao.generarIdFactura();
         int iPed=Integer.parseInt(txtIdped.getText());
         int telef=Integer.parseInt(txtTelefono.getText());
         float ruc=Float.parseFloat(txtRuc.getText());
+        
+        int idCli=Integer.parseInt(Tabla.getValueAt(0, 2).toString());
         
         double montoTotal=ImporteTotal;
         double IGV=TotalIGV;
@@ -503,6 +511,7 @@ public class Facturacion extends javax.swing.JFrame {
         
         f.setIdFac(idFac);
         f.setIdPed(iPed);
+        f.setIdCliente(idCli);
         f.setSub(subTotal);
         f.setIgv(IGV);
         f.setTotal(montoTotal);

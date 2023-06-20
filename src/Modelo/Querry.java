@@ -336,38 +336,65 @@ public class Querry extends ConexionMysql {
     }
 
     //==============================Factura=========================
+    
+    
+    //BUSCAR REGISTRO POR CLIENTE Y DIA
     public ResultSet BuscarFac(String dato, String date) {
         conectarBDD();
         try {
             statement = conexion.createStatement();
-            String query = "SELECT * FROM lista JOIN pedido ON lista.idPedido=pedido.idPedido JOIN producto ON lista.idProducto=producto.idProducto JOIN cliente ON cliente.idCliente=pedido.idCliente JOIN empleados ON lista.idEncargado=empleados.idEmpleado JOIN estado_pedido ON estado_pedido.idEstado=lista.Estado WHERE pedido.Fecha LIKE '%" + date + "%' AND cliente.Nombre LIKE '%" + dato + "%';";
+            String query = "SELECT * FROM lista JOIN pedido ON lista.idPedido=pedido.idPedido JOIN producto ON lista.idProducto=producto.idProducto JOIN cliente ON pedido.idCliente=cliente.idCliente JOIN empleados ON lista.idEncargado=empleados.idEmpleado JOIN estado_pedido ON estado_pedido.idEstado=lista.Estado WHERE pedido.Fecha LIKE '%" + date + "%' AND cliente.Dni LIKE '%" + dato + "%';";
             rs = statement.executeQuery(query);
         } catch (Exception e) {
         }
 
         return rs;
     }
-
+    
+    
+    //GENERAR ID DE FACTURA
+    public int generarIdFactura() {
+        conectarBDD();
+        int idFactura = 0;
+        try {
+            st = conexion.createStatement();
+            String querry = "SELECT MAX(factura.idFactura) FROM factura";
+            rs = st.executeQuery(querry);
+            if (rs.next()) {
+                idFactura = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+        }
+        idFactura += 1;
+        while (consultarIdLista(idFactura) != 0) {
+            idFactura += 1;
+        }
+        return idFactura;
+    }
+    
+    
+    //REGISTRAR FACTURA 
     public int RegistroFac(Factura fc) {
 
         int r = 0;
         conectarBDD();
 
-        String sql = "INSERT INTO factura(idFactura, idpedido, subTotal, IGV, Total, direccion, telefono, ruc, observaciones, fecha_emitida) VALUES (?,?,?,?,?,?,?,?,?,?) ";
+        String sql = "INSERT INTO factura(idFactura, idpedido, idCliente, subTotal, IGV, Total, direccion, telefono, ruc, observaciones, fecha_emitida) VALUES (?,?,?,?,?,?,?,?,?,?,?) ";
         try {
 
             ps = conexion.prepareStatement(sql);
 
             ps.setInt(1, fc.getIdFac());
             ps.setInt(2, fc.getIdPed());
-            ps.setDouble(3, fc.getSub());
-            ps.setDouble(4, fc.getIgv());
-            ps.setDouble(5, fc.getTotal());
-            ps.setString(6, fc.getDir());
-            ps.setInt(7, fc.getTelef());
-            ps.setFloat(8, fc.getRuc());
-            ps.setString(9, fc.getObs());
-            ps.setString(10, fc.getFecha());
+            ps.setInt(3, fc.getIdCliente());
+            ps.setDouble(4, fc.getSub());
+            ps.setDouble(5, fc.getIgv());
+            ps.setDouble(6, fc.getTotal());
+            ps.setString(7, fc.getDir());
+            ps.setInt(8, fc.getTelef());
+            ps.setFloat(9, fc.getRuc());
+            ps.setString(10, fc.getObs());
+            ps.setString(11, fc.getFecha());
             r = ps.executeUpdate();
             if (r == 1) {
                 return 1;
@@ -497,19 +524,7 @@ public class Querry extends ConexionMysql {
         return rs;
     }
 
-//Vista Administrador
-    //Mostar Datos de Pedidos
-    public ResultSet mostrarDatosPedidos(int idempleado) {
-        conectarBDD();
-        try {
-            st = conexion.createStatement();
-            String query = "SELECT * FROM lista JOIN pedido JOIN producto on lista.idProducto=producto.idProducto and lista.idPedido=pedido.idPedido WHERE lista.idEncargado=10000000 OR lista.idEncargado='" + idempleado + "'";
-            rs = st.executeQuery(query);
-        } catch (SQLException e) {
-        }
-
-        return rs;
-    }
+  //=========================================================================================
 
     //Registro Pedidos
     //consultar si existe ese idpedido

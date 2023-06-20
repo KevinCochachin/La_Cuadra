@@ -177,7 +177,7 @@ public class registrocliente extends javax.swing.JFrame {
     }//GEN-LAST:event_txtdniKeyTyped
 
     private void txtregistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtregistroActionPerformed
-            try{
+           /* try{
             con.st= con.getconexion().createStatement();
             con.st.executeUpdate("INSERT INTO `cliente`(`Nombre`, `Apellido`, `Dni`, `fecha_llegada`, `fecha_pedido`) VALUES\n"+
                     "('"+txtnombre.getText()+"', '"+txtapellido.getText()+"', '"+txtdni.getText()+"', '"+((JTextField)fecha_llegada.getDateEditor()).getText()+"', '"+((JTextField)fecha_pedido.getDateEditor()).getText()+"');");
@@ -185,7 +185,7 @@ public class registrocliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "cliente registrado");
             } catch (SQLException ex){
             Logger.getLogger(comboProducto.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }//GEN-LAST:event_txtregistroActionPerformed
 
     /**
