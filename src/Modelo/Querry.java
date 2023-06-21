@@ -335,7 +335,63 @@ public class Querry extends ConexionMysql {
 
         return rs;
     }
+        
+    //==============================Boleta=========================
+    
+    //GENERAR ID DE BOLETA
+    public int generarIdBoleta() {
+        conectarBDD();
+        int idBoleta = 0;
+        try {
+            st = conexion.createStatement();
+            String querry = "SELECT MAX(boleta.idBoleta) FROM boleta";
+            rs = st.executeQuery(querry);
+            if (rs.next()) {
+                idBoleta = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+        }
+        idBoleta += 1;
+        while (consultarIdLista(idBoleta) != 0) {
+            idBoleta += 1;
+        }
+        return idBoleta;
+    }
+    
+    //REGISTRAR BOLETA 
+    public int RegistroBoleta(Boletas b) {
 
+        int r = 0;
+        conectarBDD();
+
+        String sql = "INSERT INTO boleta(idBoleta, idpedido, idCliente, direccion, total, fecha_emitida) VALUES (?,?,?,?,?,?) ";
+        try {
+
+            ps = conexion.prepareStatement(sql);
+
+            ps.setInt(1, b.getIdBoleta());
+            ps.setInt(2, b.getIdPedido());
+            ps.setInt(3, b.getIdCliente());
+            ps.setString(4, b.getDirección());
+            ps.setDouble(5, b.getTotal());
+            ps.setString(6, b.getFecha());
+            
+            r = ps.executeUpdate();
+            if (r == 1) {
+                return 1;
+            } else {
+                return 0;
+            }
+
+        } catch (Exception e) {
+            Logger.getLogger(Querry.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return r;
+    }
+
+    
+    
+    
     //==============================Factura=========================
     
     
