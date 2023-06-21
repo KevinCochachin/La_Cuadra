@@ -6,6 +6,14 @@ package Vista;
 
 import Modelo.Boletas;
 import Modelo.Querry;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import static java.awt.print.Printable.NO_SUCH_PAGE;
+import static java.awt.print.Printable.PAGE_EXISTS;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -18,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Kevin
  */
-public class Boleta extends javax.swing.JFrame {
+public class Boleta extends javax.swing.JFrame  implements Printable {
     
     Boletas f = new Boletas();
     Querry dao = new Querry();
@@ -31,7 +39,7 @@ public class Boleta extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         Resultadobusqueda("", "");
          //OBTENER EL ID_Boleta
-        int num=dao.generarIdFactura();
+        int num=dao.generarIdBoleta();
        lblNumeroBoleta.setText(String.valueOf(num));
        
     }
@@ -140,7 +148,7 @@ public class Boleta extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("Importe Total:");
 
-        lblTotal.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        lblTotal.setFont(new java.awt.Font("Segoe UI", 1, 17)); // NOI18N
         lblTotal.setText("...");
 
         Tabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -389,6 +397,11 @@ public class Boleta extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Salir");
         jButton1.setPreferredSize(new java.awt.Dimension(100, 100));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         lblId.setText("...");
 
@@ -456,12 +469,26 @@ public class Boleta extends javax.swing.JFrame {
 
         //BUSCAMOS LOS REGISTROS SEGUN ESOS DATOS
         Resultadobusqueda(date,dato);
+        dao.LlenarNombresCli(txtNombreCli, dato);
        
 
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-        
+        try {
+            
+            PrinterJob gap=PrinterJob.getPrinterJob();
+            gap.setPrintable(this);
+            boolean top=gap.printDialog();
+            if(top){
+                gap.print();
+            }
+            
+        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null, "ERROR");
+            
+        }
         
   
         
@@ -508,6 +535,10 @@ public class Boleta extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -574,4 +605,19 @@ public class Boleta extends javax.swing.JFrame {
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtNombreCli;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+     public int print(Graphics graf, PageFormat pagefor, int index) throws PrinterException{
+        if(index>0){
+           
+           return NO_SUCH_PAGE;
+       }
+        
+       Graphics2D hub =(Graphics2D) graf;
+       hub.translate(pagefor.getImageableX()+10,pagefor.getImageableY()+10);
+       hub.scale(1.0, 1.0);
+       
+       PanelBoleta.printAll(graf);
+       return PAGE_EXISTS;
+    }
 }

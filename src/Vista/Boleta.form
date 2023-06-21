@@ -217,7 +217,7 @@
             <Component class="javax.swing.JLabel" name="lblTotal">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="15" style="1"/>
+                  <Font name="Segoe UI" size="17" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="..."/>
               </Properties>
@@ -547,6 +547,9 @@
               <Dimension value="[100, 100]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblId">
           <Properties>
