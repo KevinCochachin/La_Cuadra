@@ -247,7 +247,7 @@ public final class RegistroPedido extends javax.swing.JFrame{
 
     private void btnregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarActionPerformed
         //clases
-        SimpleDateFormat formatofecha=new SimpleDateFormat("dd/MM/YY HH:mm:ss");
+        SimpleDateFormat formatofecha=new SimpleDateFormat("YY/MM/dd HH:mm:ss");
         //generar los datos necesarios para el registro
         String clientesplit=String.valueOf(combocliente.getSelectedItem());
         String mezasplit=String.valueOf(combomesa.getSelectedItem());
