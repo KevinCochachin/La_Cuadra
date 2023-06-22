@@ -348,13 +348,13 @@ public class Adm_Cliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void inicio2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicio2MouseEntered
-        inicio.setForeground(Color.white);
-        inicio.setBackground(Color.black);
+        inicio2.setForeground(Color.white);
+        inicio2.setBackground(Color.black);
     }//GEN-LAST:event_inicio2MouseEntered
 
     private void inicio2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicio2MouseExited
-        inicio.setForeground(Color.black);
-        inicio.setBackground(Color.white);
+        inicio2.setForeground(Color.black);
+        inicio2.setBackground(Color.white);
     }//GEN-LAST:event_inicio2MouseExited
 
     private void inicio2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicio2MousePressed

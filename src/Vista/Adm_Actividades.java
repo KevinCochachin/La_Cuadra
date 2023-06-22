@@ -496,7 +496,7 @@ public class Adm_Actividades extends javax.swing.JFrame {
     }//GEN-LAST:event_listapoductoActionPerformed
 
     private void inicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioMouseClicked
-        Adm_ListaUsuario lista= new Adm_ListaUsuario();
+        Administrador lista= new Administrador();
         lista.setVisible(true);
         dispose();
     }//GEN-LAST:event_inicioMouseClicked
