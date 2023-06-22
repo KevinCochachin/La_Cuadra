@@ -521,10 +521,10 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 0, 820, 690));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 0, 820, 680));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -728,10 +728,10 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
                 .addComponent(actividades, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 303, 400));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 303, 440));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -965,103 +965,19 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
        
     }//GEN-LAST:event_tb_UsuariosMouseClicked
 
-    private void inicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioMouseEntered
-        inicio.setForeground(Color.white);
-        inicio.setBackground(Color.black);
-    }//GEN-LAST:event_inicioMouseEntered
-
-    private void inicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioMouseExited
-        inicio.setForeground(Color.black);
-        inicio.setBackground(Color.white);
-    }//GEN-LAST:event_inicioMouseExited
-
-    private void inicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioMousePressed
+    private void listapoductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listapoductoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inicioMousePressed
+    }//GEN-LAST:event_listapoductoActionPerformed
 
-    private void inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inicioActionPerformed
+    private void listapoductoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listapoductoMouseExited
+        listapoducto.setForeground(Color.black);
+        listapoducto.setBackground(Color.white);
+    }//GEN-LAST:event_listapoductoMouseExited
 
-    private void listaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaMouseClicked
-        Adm_ListaUsuario lista= new Adm_ListaUsuario();
-        lista.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_listaMouseClicked
-
-    private void listaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaMouseEntered
-        lista.setForeground(Color.white);
-        lista.setBackground(Color.black);
-    }//GEN-LAST:event_listaMouseEntered
-
-    private void listaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaMouseExited
-        lista.setForeground(Color.white);
-        lista.setBackground(Color.black);
-    }//GEN-LAST:event_listaMouseExited
-
-    private void listaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listaActionPerformed
-
-    private void clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clienteMouseClicked
-        Adm_Cliente cli = new Adm_Cliente();
-        cli.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_clienteMouseClicked
-
-    private void clienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clienteMouseEntered
-        cliente.setForeground(Color.white);
-        cliente.setBackground(Color.black);
-    }//GEN-LAST:event_clienteMouseEntered
-
-    private void clienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clienteMouseExited
-        cliente.setForeground(Color.black);
-        cliente.setBackground(Color.white);
-    }//GEN-LAST:event_clienteMouseExited
-
-    private void clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_clienteActionPerformed
-
-    private void actividadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actividadesMouseClicked
-        Adm_Actividades act= new Adm_Actividades();
-        act.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_actividadesMouseClicked
-
-    private void actividadesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actividadesMouseEntered
-        actividades.setForeground(Color.white);
-        actividades.setBackground(Color.black);
-    }//GEN-LAST:event_actividadesMouseEntered
-
-    private void actividadesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actividadesMouseExited
-        actividades.setForeground(Color.black);
-        actividades.setBackground(Color.white);
-    }//GEN-LAST:event_actividadesMouseExited
-
-    private void actividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actividadesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_actividadesActionPerformed
-
-    private void cerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarMouseClicked
-        Login login = new Login();
-        login.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_cerrarMouseClicked
-
-    private void cerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarMouseEntered
-        cerrar.setForeground(Color.white);
-        cerrar.setBackground(Color.black);
-    }//GEN-LAST:event_cerrarMouseEntered
-
-    private void cerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarMouseExited
-        cerrar.setForeground(Color.black);
-        cerrar.setBackground(Color.white);
-    }//GEN-LAST:event_cerrarMouseExited
-
-    private void cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarActionPerformed
-
-    }//GEN-LAST:event_cerrarActionPerformed
+    private void listapoductoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listapoductoMouseEntered
+        listapoducto.setForeground(Color.white);
+        listapoducto.setBackground(Color.black);
+    }//GEN-LAST:event_listapoductoMouseEntered
 
     private void listapoductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listapoductoMouseClicked
         Adm_ListaProducto lista=new Adm_ListaProducto();
@@ -1069,19 +985,103 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_listapoductoMouseClicked
 
-    private void listapoductoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listapoductoMouseEntered
-        listapoducto.setForeground(Color.white);
-        listapoducto.setBackground(Color.black);
-    }//GEN-LAST:event_listapoductoMouseEntered
+    private void cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarActionPerformed
 
-    private void listapoductoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listapoductoMouseExited
-        listapoducto.setForeground(Color.black);
-        listapoducto.setBackground(Color.white);
-    }//GEN-LAST:event_listapoductoMouseExited
+    }//GEN-LAST:event_cerrarActionPerformed
 
-    private void listapoductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listapoductoActionPerformed
+    private void cerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarMouseExited
+        cerrar.setForeground(Color.black);
+        cerrar.setBackground(Color.white);
+    }//GEN-LAST:event_cerrarMouseExited
+
+    private void cerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarMouseEntered
+        cerrar.setForeground(Color.white);
+        cerrar.setBackground(Color.black);
+    }//GEN-LAST:event_cerrarMouseEntered
+
+    private void cerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarMouseClicked
+        Login login = new Login();
+        login.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_cerrarMouseClicked
+
+    private void actividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actividadesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_listapoductoActionPerformed
+    }//GEN-LAST:event_actividadesActionPerformed
+
+    private void actividadesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actividadesMouseExited
+        actividades.setForeground(Color.black);
+        actividades.setBackground(Color.white);
+    }//GEN-LAST:event_actividadesMouseExited
+
+    private void actividadesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actividadesMouseEntered
+        actividades.setForeground(Color.white);
+        actividades.setBackground(Color.black);
+    }//GEN-LAST:event_actividadesMouseEntered
+
+    private void actividadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actividadesMouseClicked
+        Adm_Actividades act= new Adm_Actividades();
+        act.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_actividadesMouseClicked
+
+    private void clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clienteActionPerformed
+
+    private void clienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clienteMouseExited
+        cliente.setForeground(Color.black);
+        cliente.setBackground(Color.white);
+    }//GEN-LAST:event_clienteMouseExited
+
+    private void clienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clienteMouseEntered
+        cliente.setForeground(Color.white);
+        cliente.setBackground(Color.black);
+    }//GEN-LAST:event_clienteMouseEntered
+
+    private void clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clienteMouseClicked
+        Adm_Cliente cli = new Adm_Cliente();
+        cli.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_clienteMouseClicked
+
+    private void listaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaActionPerformed
+
+    private void listaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaMouseExited
+        lista.setForeground(Color.white);
+        lista.setBackground(Color.black);
+    }//GEN-LAST:event_listaMouseExited
+
+    private void listaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaMouseEntered
+        lista.setForeground(Color.white);
+        lista.setBackground(Color.black);
+    }//GEN-LAST:event_listaMouseEntered
+
+    private void listaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaMouseClicked
+        Adm_ListaUsuario lista= new Adm_ListaUsuario();
+        lista.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_listaMouseClicked
+
+    private void inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inicioActionPerformed
+
+    private void inicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inicioMousePressed
+
+    private void inicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioMouseExited
+        inicio.setForeground(Color.black);
+        inicio.setBackground(Color.white);
+    }//GEN-LAST:event_inicioMouseExited
+
+    private void inicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioMouseEntered
+        inicio.setForeground(Color.white);
+        inicio.setBackground(Color.black);
+    }//GEN-LAST:event_inicioMouseEntered
 
     private void inicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioMouseClicked
         Administrador adm=new Administrador();

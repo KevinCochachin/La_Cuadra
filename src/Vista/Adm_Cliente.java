@@ -68,7 +68,7 @@ public class Adm_Cliente extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        inicio2 = new javax.swing.JTextField();
+        inicio = new javax.swing.JTextField();
         lista = new javax.swing.JTextField();
         cliente = new javax.swing.JTextField();
         actividades = new javax.swing.JTextField();
@@ -121,10 +121,10 @@ public class Adm_Cliente extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(50, 50, 50)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 0, 820, 690));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 0, 820, 680));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -146,30 +146,30 @@ public class Adm_Cliente extends javax.swing.JFrame {
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
-        inicio2.setEditable(false);
-        inicio2.setBackground(new java.awt.Color(255, 255, 255));
-        inicio2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        inicio2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        inicio2.setText("INICIO");
-        inicio2.setAutoscrolls(false);
-        inicio2.setBorder(null);
-        inicio2.addMouseListener(new java.awt.event.MouseAdapter() {
+        inicio.setEditable(false);
+        inicio.setBackground(new java.awt.Color(255, 255, 255));
+        inicio.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        inicio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        inicio.setText("INICIO");
+        inicio.setAutoscrolls(false);
+        inicio.setBorder(null);
+        inicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                inicio2MouseClicked(evt);
+                inicioMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                inicio2MouseEntered(evt);
+                inicioMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                inicio2MouseExited(evt);
+                inicioMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                inicio2MousePressed(evt);
+                inicioMousePressed(evt);
             }
         });
-        inicio2.addActionListener(new java.awt.event.ActionListener() {
+        inicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inicio2ActionPerformed(evt);
+                inicioActionPerformed(evt);
             }
         });
 
@@ -298,22 +298,22 @@ public class Adm_Cliente extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cerrar, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(inicio2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
+                        .addComponent(inicio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
                         .addComponent(lista, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
                         .addComponent(cliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
                         .addComponent(actividades, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE))
-                    .addComponent(listapoducto, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(listapoducto, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(inicio2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lista, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -324,10 +324,10 @@ public class Adm_Cliente extends javax.swing.JFrame {
                 .addComponent(actividades, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 303, 400));
+        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 303, 390));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -347,23 +347,23 @@ public class Adm_Cliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void inicio2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicio2MouseEntered
+    private void inicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioMouseEntered
         inicio.setForeground(Color.white);
         inicio.setBackground(Color.black);
-    }//GEN-LAST:event_inicio2MouseEntered
+    }//GEN-LAST:event_inicioMouseEntered
 
-    private void inicio2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicio2MouseExited
+    private void inicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioMouseExited
         inicio.setForeground(Color.black);
         inicio.setBackground(Color.white);
-    }//GEN-LAST:event_inicio2MouseExited
+    }//GEN-LAST:event_inicioMouseExited
 
-    private void inicio2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicio2MousePressed
+    private void inicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inicio2MousePressed
+    }//GEN-LAST:event_inicioMousePressed
 
-    private void inicio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicio2ActionPerformed
+    private void inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inicio2ActionPerformed
+    }//GEN-LAST:event_inicioActionPerformed
 
     private void listaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaMouseClicked
         Adm_ListaUsuario lista= new Adm_ListaUsuario();
@@ -465,11 +465,11 @@ public class Adm_Cliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_listapoductoActionPerformed
 
-    private void inicio2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicio2MouseClicked
+    private void inicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioMouseClicked
         Administrador adm=new Administrador();
         adm.setVisible(true);
         dispose();
-    }//GEN-LAST:event_inicio2MouseClicked
+    }//GEN-LAST:event_inicioMouseClicked
 
     /**
      * @param args the command line arguments
@@ -512,15 +512,11 @@ public class Adm_Cliente extends javax.swing.JFrame {
     private javax.swing.JTextField cerrar;
     private javax.swing.JTextField cliente;
     private javax.swing.JTextField inicio;
-    private javax.swing.JTextField inicio1;
-    private javax.swing.JTextField inicio2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField lista;

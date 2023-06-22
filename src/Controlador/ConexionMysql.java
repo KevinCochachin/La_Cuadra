@@ -18,7 +18,7 @@ public class ConexionMysql {
         url="jdbc:mysql://localhost:3306/restaurante";
         driver="com.mysql.cj.jdbc.Driver";
         Usuario="root";
-        Contraseña="";
+        Contraseña="admin";
     }
     
     public Connection getconexion(){
