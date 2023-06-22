@@ -1,7 +1,7 @@
 
 package Modelo;
 
-
+//KEVIN COCHACHIN
 public class Empleados {
     //Ayuda
     private int tipo_empleado;
