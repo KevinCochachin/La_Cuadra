@@ -26,7 +26,8 @@ public class Facturacion extends javax.swing.JFrame implements Printable {
     Factura f = new Factura();
     Querry dao = new Querry();
     
-    
+    int idMoz=0;
+    int idCli=0;
     public Facturacion() {
         
         initComponents();
@@ -46,14 +47,13 @@ public class Facturacion extends javax.swing.JFrame implements Printable {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("idPedido");
         modelo.addColumn("idProducto");
-        modelo.addColumn("idCliente");
         modelo.addColumn("Descripcion");
         modelo.addColumn("Cantidad");
         modelo.addColumn("Precio");
         Tabla.setModel(modelo);
         Tabla.getColumnModel().getColumn(3).setPreferredWidth(200);
         //Clasequery
-        String[] datos = new String[6];
+        String[] datos = new String[5];
         Querry qr = new Querry();
         try {
             //Método factura para mostrar los datos
@@ -63,15 +63,16 @@ public class Facturacion extends javax.swing.JFrame implements Printable {
             datos[0] = rs.getString(2);
             //idProducto
             datos[1] = rs.getString(13);
-            //idCliente
-            datos[2] = rs.getString(18);
             //Descripcion
-            datos [3] = rs.getString(15);
+            datos [2] = rs.getString(15);
              //cantidad
-            datos[4] = rs.getString(4);
+            datos[3] = rs.getString(4);
              //Precio
-            datos[5] = rs.getString(16);
-             
+            datos[4] = rs.getString(16);
+            //idCli
+            idCli=rs.getInt(18);
+            //idMoz
+            idMoz=rs.getInt(9);
             modelo.addRow(datos);
             }   
         } catch (Exception e) {
@@ -93,8 +94,8 @@ public class Facturacion extends javax.swing.JFrame implements Printable {
          SubTotal = 0.00;
         int numFila = Tabla.getRowCount();
         for (int i = 0; i < numFila; i++) {
-            double pre = Double.parseDouble(String.valueOf(Tabla.getModel().getValueAt(i, 5)));
-            double cant = Double.parseDouble(String.valueOf(Tabla.getModel().getValueAt(i, 4)));
+            double pre = Double.parseDouble(String.valueOf(Tabla.getModel().getValueAt(i, 4)));
+            double cant = Double.parseDouble(String.valueOf(Tabla.getModel().getValueAt(i, 3)));
             SubTotal = SubTotal + (pre*cant);
         }
         txtSub.setText(String.format("%.2f", SubTotal));
@@ -255,7 +256,7 @@ public class Facturacion extends javax.swing.JFrame implements Printable {
 
             },
             new String [] {
-                "idPedido", "idProducto", "idCliente", "Descripcion", "Cantidad", "Precio"
+                "idPedido", "idProducto", "Descripcion", "Cantidad", "Precio"
             }
         ));
         Tabla.setRowHeight(30);
@@ -544,6 +545,7 @@ public class Facturacion extends javax.swing.JFrame implements Printable {
         //BUSCAMOS LOS REGISTROS SEGUN ESOS DATOS
         Resultadobusqueda(date,dato);
         dao.LlenarNombresCli(txtNombreCliente, dato);
+        dao.LlenarTelefCli(txtTelefono, dato);
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -561,7 +563,8 @@ public class Facturacion extends javax.swing.JFrame implements Printable {
         int telef=Integer.parseInt(txtTelefono.getText());
         float ruc=Float.parseFloat(txtRuc.getText());
         
-        int idCli=Integer.parseInt(Tabla.getValueAt(0, 2).toString());
+        int idCliente=idCli;
+        int idMozo=idMoz;
         
         double montoTotal=ImporteTotal;
         double IGV=TotalIGV;
@@ -571,12 +574,13 @@ public class Facturacion extends javax.swing.JFrame implements Printable {
         int año = txtDate.getCalendar().get(Calendar.YEAR);
         int mes = txtDate.getCalendar().get(Calendar.MONTH);
         int dia = txtDate.getCalendar().get(Calendar.DAY_OF_MONTH);
-        String fecha = año+"/"+mes+"/"+dia;
+        String fecha = año+"/"+(mes+1)+"/"+dia;
         
         //ENVIAR LOS DATOS PARA REGISTRARLO
         f.setIdFac(idFac);
         f.setIdPed(iPed);
-        f.setIdCliente(idCli);
+        f.setIdMozo(idMozo);
+        f.setIdCliente(idCliente);
         f.setSub(subTotal);
         f.setIgv(IGV);
         f.setTotal(montoTotal);

@@ -7,12 +7,12 @@ import java.sql.Date;
 public class Factura {
     
     String dir,obs;
-    int idFac,idPed,idCliente,telef;
+    int idFac,idPed,idCliente,telef, idMozo;
     float ruc;
     double total,igv,sub;
     String fecha;
 
-    public Factura(String dir, String obs, int idFac, int idPed, int idCliente, int telef, double sub, double igv, double total, float ruc, String fecha) {
+    public Factura(String dir, String obs, int idFac, int idPed, int idCliente, int telef, double sub, double igv, double total, float ruc, String fecha, int idMozo) {
         this.dir = dir;
         this.obs = obs;
         this.idFac = idFac;
@@ -24,6 +24,7 @@ public class Factura {
         this.total = total;
         this.ruc = ruc;
         this.fecha = fecha;
+        this.idMozo = idMozo;
     }
     
     public Factura(){
@@ -116,6 +117,14 @@ public class Factura {
 
     public void setIdCliente(int idCliente) {
         this.idCliente = idCliente;
+    }
+
+    public int getIdMozo() {
+        return idMozo;
+    }
+
+    public void setIdMozo(int idMozo) {
+        this.idMozo = idMozo;
     }
     
 }

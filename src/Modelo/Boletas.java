@@ -3,20 +3,19 @@ package Modelo;
 
 import java.sql.Date;
 
-/**
- *
- * @author Kevin Co.
- */
+//@author Kevin Co.
+ 
 public class Boletas {
     
-    int idBoleta, idPedido,idCliente;
+    int idBoleta, idPedido,idCliente, idMozo;
     Double total;
     String dirección;
     String fecha;
 
-    public Boletas(int idBoleta, int idPedido, int idCliente, Double total, String dirección, String fecha) {
+    public Boletas(int idBoleta, int idPedido,int idMozo, int idCliente, Double total, String dirección, String fecha) {
         this.idBoleta = idBoleta;
         this.idPedido = idPedido;
+        this.idMozo = idMozo;
         this.idCliente = idCliente;
         this.total = total;
         this.dirección = dirección;
@@ -73,6 +72,14 @@ public class Boletas {
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
+    }
+
+    public int getIdMozo() {
+        return idMozo;
+    }
+
+    public void setIdMozo(int idMozo) {
+        this.idMozo = idMozo;
     }
     
     

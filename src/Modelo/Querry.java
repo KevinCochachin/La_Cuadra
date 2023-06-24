@@ -364,17 +364,18 @@ public class Querry extends ConexionMysql {
         int r = 0;
         conectarBDD();
 
-        String sql = "INSERT INTO boleta(idBoleta, idpedido, idCliente, direccion, total, fecha_emitida) VALUES (?,?,?,?,?,?) ";
+        String sql = "INSERT INTO boleta(idBoleta, idPedido, idMozo, idCliente, direccion, total, fecha_emitida) VALUES (?,?,?,?,?,?,?) ";
         try {
 
             ps = conexion.prepareStatement(sql);
 
             ps.setInt(1, b.getIdBoleta());
             ps.setInt(2, b.getIdPedido());
-            ps.setInt(3, b.getIdCliente());
-            ps.setString(4, b.getDirección());
-            ps.setDouble(5, b.getTotal());
-            ps.setString(6, b.getFecha());
+            ps.setInt(3, b.getIdMozo());
+            ps.setInt(4, b.getIdCliente());
+            ps.setString(5, b.getDirección());
+            ps.setDouble(6, b.getTotal());
+            ps.setString(7, b.getFecha());
             
             r = ps.executeUpdate();
             if (r == 1) {
@@ -408,6 +409,7 @@ public class Querry extends ConexionMysql {
         return rs;
     }
     
+    //LLENAR NOMBRES CLIENTES POR DNI
      public void LlenarNombresCli(JTextField clientes, String buscar) {
         conectarBDD();
         try {
@@ -417,6 +419,22 @@ public class Querry extends ConexionMysql {
             while (rs.next()) {
 
                 clientes.setText(rs.getString(2) + " " + rs.getString(3));
+            }
+        } catch (SQLException e) {
+        }
+    }
+     
+     
+    //LLENAR TELEF DEL CLIENTE POR DNI 
+     public void LlenarTelefCli(JTextField clientes, String buscar) {
+        conectarBDD();
+        try {
+            st = conexion.createStatement();
+            String query = "SELECT * FROM cliente WHERE (Dni LIKE '%" + buscar + "%')";
+            rs = st.executeQuery(query);
+            while (rs.next()) {
+
+                clientes.setText(String.valueOf(rs.getInt(5)));
             }
         } catch (SQLException e) {
         }
@@ -450,22 +468,23 @@ public class Querry extends ConexionMysql {
         int r = 0;
         conectarBDD();
 
-        String sql = "INSERT INTO factura(idFactura, idpedido, idCliente, subTotal, IGV, Total, direccion, telefono, ruc, observaciones, fecha_emitida) VALUES (?,?,?,?,?,?,?,?,?,?,?) ";
+        String sql = "INSERT INTO factura(idFactura, idpedido, idMozo, idCliente, subTotal, IGV, Total, direccion, telefono, ruc, observaciones, fecha_emitida) VALUES (?,?,?,?,?,?,?,?,?,?,?,?) ";
         try {
-
+            
             ps = conexion.prepareStatement(sql);
 
             ps.setInt(1, fc.getIdFac());
             ps.setInt(2, fc.getIdPed());
-            ps.setInt(3, fc.getIdCliente());
-            ps.setDouble(4, fc.getSub());
-            ps.setDouble(5, fc.getIgv());
-            ps.setDouble(6, fc.getTotal());
-            ps.setString(7, fc.getDir());
-            ps.setInt(8, fc.getTelef());
-            ps.setFloat(9, fc.getRuc());
-            ps.setString(10, fc.getObs());
-            ps.setString(11, fc.getFecha());
+            ps.setInt(3, fc.getIdMozo());
+            ps.setInt(4, fc.getIdCliente());
+            ps.setDouble(5, fc.getSub());
+            ps.setDouble(6, fc.getIgv());
+            ps.setDouble(7, fc.getTotal());
+            ps.setString(8, fc.getDir());
+            ps.setInt(9, fc.getTelef());
+            ps.setFloat(10, fc.getRuc());
+            ps.setString(11, fc.getObs());
+            ps.setString(12, fc.getFecha());
             r = ps.executeUpdate();
             if (r == 1) {
                 return 1;

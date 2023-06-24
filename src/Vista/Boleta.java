@@ -32,6 +32,7 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
     Querry dao = new Querry();
     
     int idCli=0;
+    int idMoz=0;
     public Boleta() {
         initComponents();
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/Icon.png")).getImage());
@@ -71,6 +72,8 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
             datos[3] = rs.getString(16);
             //idCli
             idCli=rs.getInt(18);
+            //idMozo
+            idMoz=rs.getInt(9);
             modelo.addRow(datos);
             }
          
@@ -130,6 +133,8 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
         txtNombreCli = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtDireccion = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtTelefCli = new javax.swing.JTextField();
         btnImprimir = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -292,6 +297,11 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setText("Telef:");
+
+        txtTelefCli.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+
         javax.swing.GroupLayout PanelBoletaLayout = new javax.swing.GroupLayout(PanelBoleta);
         PanelBoleta.setLayout(PanelBoletaLayout);
         PanelBoletaLayout.setHorizontalGroup(
@@ -303,16 +313,31 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
                         .addComponent(jScrollPane2)
                         .addContainerGap())
                     .addGroup(PanelBoletaLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(28, 28, 28)
-                        .addComponent(txtClienteDni, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBuscar)
-                        .addGap(0, 13, Short.MAX_VALUE))))
+                        .addGroup(PanelBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(PanelBoletaLayout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtNombreCli, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtTelefCli, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(29, 29, 29))
+                            .addGroup(PanelBoletaLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(28, 28, 28)
+                                .addComponent(txtClienteDni, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnBuscar)))
+                        .addGap(0, 1, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelBoletaLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -325,16 +350,6 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
                 .addGap(27, 27, 27)
                 .addComponent(lblTotal)
                 .addGap(67, 67, 67))
-            .addGroup(PanelBoletaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtNombreCli, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelBoletaLayout.setVerticalGroup(
             PanelBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -346,7 +361,7 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
                     .addGroup(PanelBoletaLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(PanelBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(PanelBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel2)
@@ -355,12 +370,15 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
                             .addComponent(jLabel7)
                             .addComponent(txtClienteDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(btnBuscar))
-                .addGap(17, 17, 17)
-                .addGroup(PanelBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtNombreCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(PanelBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtDireccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PanelBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel8)
+                        .addComponent(txtNombreCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9)
+                        .addComponent(jLabel6)
+                        .addComponent(txtTelefCli, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -470,6 +488,7 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
         //BUSCAMOS LOS REGISTROS SEGUN ESOS DATOS
         Resultadobusqueda(date,dato);
         dao.LlenarNombresCli(txtNombreCli, dato);
+        dao.LlenarTelefCli(txtTelefCli, dato);
        
 
     }//GEN-LAST:event_btnBuscarActionPerformed
@@ -510,7 +529,7 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
         int iPed=Integer.parseInt(Tabla.getValueAt(0, 0).toString());
         
         int idCliente=idCli;
-        
+        int idMozo=idMoz;
         double montoTotal=ImporteTotal;
         //Date fecha= (Date) txtDate.getDate();
         
@@ -522,14 +541,15 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
         //ENVIAR LOS DATOS PARA REGISTRARLO
         f.setIdBoleta(idBoleta);
         f.setIdPedido(iPed);
+        f.setIdMozo(idMozo);
         f.setIdCliente(idCliente);
-        f.setTotal(montoTotal);
         f.setDirección(dir);
+        f.setTotal(montoTotal);
         f.setFecha(fecha);
         
         int r = dao.RegistroBoleta(f);
         if (r == 1) {
-            JOptionPane.showMessageDialog(null, "Factura Registrada");
+            JOptionPane.showMessageDialog(null, "Boleta Registrada");
         } else {
             JOptionPane.showMessageDialog(null, "Error");
         }
@@ -590,6 +610,7 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -604,6 +625,7 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
     public com.toedter.calendar.JDateChooser txtDate;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtNombreCli;
+    private javax.swing.JTextField txtTelefCli;
     // End of variables declaration//GEN-END:variables
 
     @Override
