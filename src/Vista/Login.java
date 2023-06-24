@@ -242,6 +242,12 @@ public class Login extends javax.swing.JFrame {
                     mesero.setVisible(true);
                     dispose();
                     break;
+                 case 16:
+                Recepcion recepcion;
+                    recepcion = new Recepcion(consulta.loginobteneridempleado(correo),consulta.loginobtenertipoempleado(correo),consulta.loginobteneridtipoempleado(correo));
+                    recepcion.setVisible(true);
+                    dispose();
+                    break;
                 default:
                     break;
             }

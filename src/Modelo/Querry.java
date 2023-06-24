@@ -837,5 +837,88 @@ public class Querry extends ConexionMysql {
         }
 
     }
+    
+    
+    //////Renato////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+        public int generarIdCli() {
+        conectarBDD();
+        int idCli = 0;
+        try {
+            st = conexion.createStatement();
+            String querry = "SELECT MAX(cliente.idCliente) FROM cliente";
+            rs = st.executeQuery(querry);
+            if (rs.next()) {
+                idCli = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+        }
+        idCli += 1;
+        while (consultarIdLista(idCli) != 0) {
+            idCli += 1;
+        }
+        return idCli;
+    }
+    
+    
+    
+    public List recepcion_cliente(){
+         conectarBDD();
+         List<cliente> datos=new ArrayList<>();
+         try {
+              ps = conexion.prepareStatement("SELECT * FROM cliente where idCliente > 1000000");
+                                             
+              rs=ps.executeQuery();
+              while (rs.next()) {
+                  cliente p= new cliente();
+                  p.setID(rs.getInt(1));
+                 p.setNombre(rs.getString(2));
+                  p.setApellido(rs.getString(3));
+                  p.setDni(rs.getInt(4));
+                  datos.add(p);
+              }
+              
+             } catch (Exception e) {
+             }
+         return datos;
+     }
+          
+    public void EliminarCliente(int id){
+        conectarBDD();
+        try {
+            
+            String SQL="delete from cliente where idCliente="+id;
+            
+            Statement st=conexion.createStatement();
+            st.executeUpdate(SQL);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al eliminar cliente"+e.getMessage());
+        }
+    }
+    
+            //listar tipo de productos
+        public List listar_producto(){
+         conectarBDD();
+         List<Producto> datos=new ArrayList<>();
+         try {
+              ps = conexion.prepareStatement("SELECT * FROM producto");
+                                             
+              rs=ps.executeQuery();
+              while (rs.next()) {
+                  Producto p= new Producto();
+                  p.setIdproducto(rs.getInt(1));
+                  p.setIdtipo_producto(rs.getInt(2));
+                  p.setNombre(rs.getString(3));
+                  p.setPrecio(rs.getFloat(4));
+                  p.setTiempo(rs.getFloat(5));
+                  datos.add(p);
+              }
+              
+             } catch (Exception e) {
+             }
+         return datos;
+     }
+////////////////
 
 }

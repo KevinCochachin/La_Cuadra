@@ -5,7 +5,7 @@ import java.sql.Date;
 
 /**
  *
- * @author Kevin C.
+ * @author Kevin Co.
  */
 public class Boletas {
     
