@@ -15,10 +15,10 @@ public class ConexionMysql {
     
   
     public ConexionMysql(){
-        url="jdbc:mysql://localhost:3306/restaurante";
+        url="jdbc:mysql://localhost:3345/restaurante";
         driver="com.mysql.cj.jdbc.Driver";
         Usuario="root";
-        Contraseña="admin";
+        Contraseña="";
     }
     
     public Connection getconexion(){
@@ -30,7 +30,7 @@ public class ConexionMysql {
         try {
             Class.forName(driver);
             conexion =DriverManager.getConnection(url, Usuario, Contraseña);
-        } catch (Exception e) {
+        } catch (ClassNotFoundException | SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al Conectar ala base de datos: " +e);
         }
     }
