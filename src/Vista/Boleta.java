@@ -536,7 +536,7 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
         int año = txtDate.getCalendar().get(Calendar.YEAR);
         int mes = txtDate.getCalendar().get(Calendar.MONTH);
         int dia = txtDate.getCalendar().get(Calendar.DAY_OF_MONTH);
-        String fecha = año+"/"+mes+"/"+dia;
+        String fecha = año+"/"+(mes+1)+"/"+dia;
         
         //ENVIAR LOS DATOS PARA REGISTRARLO
         f.setIdBoleta(idBoleta);

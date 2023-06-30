@@ -25,7 +25,7 @@ public class QuerryGraficos extends ConexionMysql {
     //Graficar
     public void graficar(DefaultCategoryDataset datos,Panel panel) {
         //Creacion de Grafico
-        JFreeChart garficos = ChartFactory.createBarChart3D(
+        JFreeChart garficos = ChartFactory.createBarChart(
                 "Grafico Mozos", "Mozos", "Cantidad",
                 datos, PlotOrientation.VERTICAL,
                 true, true, false);
