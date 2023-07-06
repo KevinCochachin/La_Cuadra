@@ -677,7 +677,9 @@ public class Administrador extends javax.swing.JFrame {
             qr.graficarclientes(Fechaincio, FechaFin,panelGrafico);
             
         }else if(btVentas.isSelected()){
+            
         }else if(btClientesrecurrentes.isSelected()){
+            qr.graficarclientesConcurridos(Fechaincio, FechaFin, panelGrafico);
         }else if(btClientesNuevos.isSelected()){
         }else if(btProductosmas.isSelected()){
         }else if(btProductosmenos.isSelected()){

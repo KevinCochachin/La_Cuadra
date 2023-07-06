@@ -938,6 +938,119 @@ public class Querry extends ConexionMysql {
              }
          return datos;
      }
-////////////////
+////////////////////////////////////////////////////////////////////////////////////
+        
+        //LISTAR Suministro
+        
+    public List suministro() {
+        conectarBDD();
+        List<registro_Suministro> datos = new ArrayList<>();
+        try {
+            ps = conexion.prepareStatement("SELECT * FROM suministros");
+
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                registro_Suministro p = new registro_Suministro();
+                p.setID(rs.getInt(1));
+                p.setNombre(rs.getString(2));
+                p.setCantidad(rs.getDouble(3));
+                p.setDescripcion(rs.getString(4));
+                datos.add(p);
+            }
+
+        } catch (Exception e) {
+        }
+        return datos;
+    }
+        
+        //GENERAR ID DE SUMINISTRO
+    
+    public int generarIdSuministroS() {
+        conectarBDD();
+        int idSuministro = 0;
+        try {
+            st = conexion.createStatement();
+            String querry = "SELECT MAX(suministros.idSuministro) FROM suministros";
+            rs = st.executeQuery(querry);
+            if (rs.next()) {
+                idSuministro = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+        }
+        idSuministro += 1;
+        while (consultarIdLista(idSuministro) != 0) {
+            idSuministro += 1;
+        }
+        return idSuministro;
+    }
+    
+        //REGISTRAR SUMINISTRO
+        
+        public int RegistrosuministroS (registro_Suministro S) {
+
+        int r = 0;
+        conectarBDD();
+
+        String sql = "INSERT INTO suministros(idSuministro, Nombre, Cantidad, Descripcion) VALUES (?,?,?,?) ";
+        try {
+
+            ps = conexion.prepareStatement(sql);
+
+            ps.setInt(1, S.getID());
+            ps.setString(2, S.getNombre());
+            ps.setDouble(3, S.getCantidad());
+            ps.setString(4, S.getDescripcion());
+            
+            
+            r = ps.executeUpdate();
+            if (r == 1) {
+                return 1;
+            } else {
+                return 0;
+            }
+
+        } catch (Exception e) {
+            Logger.getLogger(Querry.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return r;
+    }
+     
+     //ACTUALIZAR SUMINISTRO
+     
+ public void ActualizarRegistroS(registro_Suministro S ){
+        conectarBDD();
+        String sql="update suministros set Nombre=?,cantidad=?,Descripcion=? where idSuministro=?";     
+        try {
+            
+           ps = conexion.prepareStatement(sql);                        
+            
+            ps.setString(1,S.getNombre());
+            ps.setDouble(2,S.getCantidad());
+            ps.setString(3,S.getDescripcion());
+            ps.setInt(4,S.getID());
+            
+            
+            ps.executeUpdate(); 
+            
+        }catch (Exception e) {
+            
+        }
+    }
+   //ELIMINAR REGISTRO SUMINISTRO
+ 
+        public void EliminarRegistroS(int id) {
+        conectarBDD();
+        try {
+
+            String SQL = "delete from suministros where idSuministro=" + id;
+
+            Statement st = conexion.createStatement();
+            st.executeUpdate(SQL);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al eliminar registro" + e.getMessage());
+        }
+    }
+
 
 }

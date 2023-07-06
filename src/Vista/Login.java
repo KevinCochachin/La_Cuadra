@@ -248,6 +248,12 @@ public class Login extends javax.swing.JFrame {
                     recepcion.setVisible(true);
                     dispose();
                     break;
+                 case 17:
+                
+                   Adm_Suministros suministros = new Adm_Suministros();
+                    suministros.setVisible(true);
+                    dispose();
+                    break;
                 default:
                     break;
             }
