@@ -108,6 +108,8 @@ public class Adm_Actividades extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
+        jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         Tabla.setBackground(new java.awt.Color(51, 153, 255));
         Tabla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Tabla.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -128,7 +130,7 @@ public class Adm_Actividades extends javax.swing.JFrame {
         Tabla.setShowHorizontalLines(true);
         jScrollPane1.setViewportView(Tabla);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 3, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
         jLabel1.setText("INFORME DE ACTIVIDADES");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -136,22 +138,22 @@ public class Adm_Actividades extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1001, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(230, 230, 230))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62))
+                .addGap(68, 68, 68)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 0, 1030, 690));
@@ -178,11 +180,12 @@ public class Adm_Actividades extends javax.swing.JFrame {
 
         inicio.setEditable(false);
         inicio.setBackground(new java.awt.Color(255, 255, 255));
-        inicio.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        inicio.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         inicio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         inicio.setText("INICIO");
         inicio.setAutoscrolls(false);
         inicio.setBorder(null);
+        inicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         inicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 inicioMouseClicked(evt);
@@ -205,11 +208,12 @@ public class Adm_Actividades extends javax.swing.JFrame {
 
         lista.setEditable(false);
         lista.setBackground(new java.awt.Color(255, 255, 255));
-        lista.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lista.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lista.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         lista.setText("LISTA DE USUARIOS");
         lista.setBorder(null);
         lista.setCaretColor(new java.awt.Color(255, 255, 255));
+        lista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lista.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listaMouseClicked(evt);
@@ -229,11 +233,12 @@ public class Adm_Actividades extends javax.swing.JFrame {
 
         cliente.setEditable(false);
         cliente.setBackground(new java.awt.Color(255, 255, 255));
-        cliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        cliente.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         cliente.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         cliente.setText("CLIENTE");
         cliente.setBorder(null);
         cliente.setCaretColor(new java.awt.Color(255, 255, 255));
+        cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 clienteMouseClicked(evt);
@@ -253,12 +258,13 @@ public class Adm_Actividades extends javax.swing.JFrame {
 
         actividades.setEditable(false);
         actividades.setBackground(new java.awt.Color(0, 0, 0));
-        actividades.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        actividades.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         actividades.setForeground(new java.awt.Color(255, 255, 255));
         actividades.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         actividades.setText("ACTIVIDADES");
         actividades.setBorder(null);
         actividades.setCaretColor(new java.awt.Color(255, 255, 255));
+        actividades.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         actividades.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 actividadesMouseClicked(evt);
@@ -278,11 +284,12 @@ public class Adm_Actividades extends javax.swing.JFrame {
 
         cerrar.setEditable(false);
         cerrar.setBackground(new java.awt.Color(255, 255, 255));
-        cerrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        cerrar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         cerrar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         cerrar.setText("CERRAR SECCION");
         cerrar.setBorder(null);
         cerrar.setCaretColor(new java.awt.Color(255, 255, 255));
+        cerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cerrarMouseClicked(evt);
@@ -302,11 +309,12 @@ public class Adm_Actividades extends javax.swing.JFrame {
 
         listapoducto.setEditable(false);
         listapoducto.setBackground(new java.awt.Color(255, 255, 255));
-        listapoducto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        listapoducto.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         listapoducto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         listapoducto.setText("LISTA DE PRODUCTOS");
         listapoducto.setBorder(null);
         listapoducto.setCaretColor(new java.awt.Color(255, 255, 255));
+        listapoducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         listapoducto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listapoductoMouseClicked(evt);

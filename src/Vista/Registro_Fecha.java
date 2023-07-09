@@ -132,30 +132,35 @@ public class Registro_Fecha extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         fechareservacion.setDateFormatString("yyyy-MM-dd\n");
 
         fechallegada.setDateFormatString("yyyy-MM-dd");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI Historic", 1, 14)); // NOI18N
         jLabel2.setText("CLIENTE:");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI Historic", 1, 14)); // NOI18N
         jLabel3.setText("DNI:");
 
-        dnitxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        dnitxt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dnitxt.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        clientetxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        clientetxt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        clientetxt.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI Historic", 1, 14)); // NOI18N
         jLabel4.setText("CODIGO:");
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI Historic", 1, 14)); // NOI18N
         jLabel5.setText("FECHA DE LLEGADA:");
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI Historic", 1, 14)); // NOI18N
         jLabel6.setText("FECHA DE RESERVACION:");
 
-        codigotxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        codigotxt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        codigotxt.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -164,13 +169,12 @@ public class Registro_Fecha extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
+                        .addGap(14, 14, 14)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel3)))
-                        .addGap(18, 18, 18)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(56, 56, 56)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(dnitxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(clientetxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -181,14 +185,11 @@ public class Registro_Fecha extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jLabel6)
-                                        .addGap(12, 12, 12))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(18, 18, 18)))
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel5))
+                                .addGap(12, 12, 12)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(fechallegada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(fechareservacion, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE))
@@ -198,19 +199,17 @@ public class Registro_Fecha extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(codigotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(codigotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(clientetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(clientetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dnitxt, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dnitxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1)
@@ -286,7 +285,7 @@ public class Registro_Fecha extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnregistrar)
                     .addComponent(btnatras))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

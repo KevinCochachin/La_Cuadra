@@ -5,15 +5,19 @@
 package Vista;
 
 import Modelo.Querry;
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.TableCellRenderer;
 
 /**
  *
  * @author Usuario
  */
-public class RegistroPedidoLista extends javax.swing.JFrame {
+public class RegistroPedidoLista extends javax.swing.JFrame implements TableCellRenderer{
     //Variables Globales
     int idpedid;
     //clases globales
@@ -38,7 +42,9 @@ public class RegistroPedidoLista extends javax.swing.JFrame {
         btneliminar.setEnabled(false);
     }
 
-    
+    public void disenotabablas(){
+        //TablaLista.setTableHeader(setBackground(Color.black));
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -86,8 +92,11 @@ public class RegistroPedidoLista extends javax.swing.JFrame {
         jLabel5.setText("Descripción");
 
         comboproducto.setEditable(true);
+        comboproducto.setBorder(null);
         comboproducto.setEnabled(false);
 
+        txtdescripcion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        txtdescripcion.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtdescripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtdescripcionActionPerformed(evt);
@@ -95,9 +104,10 @@ public class RegistroPedidoLista extends javax.swing.JFrame {
         });
 
         btneliminar.setBackground(new java.awt.Color(255, 51, 51));
-        btneliminar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btneliminar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btneliminar.setForeground(new java.awt.Color(255, 255, 255));
         btneliminar.setText("Eliminar");
+        btneliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btneliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btneliminarActionPerformed(evt);
@@ -105,9 +115,10 @@ public class RegistroPedidoLista extends javax.swing.JFrame {
         });
 
         btnagregar.setBackground(new java.awt.Color(0, 0, 0));
-        btnagregar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnagregar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnagregar.setForeground(new java.awt.Color(255, 255, 255));
         btnagregar.setText("Agregar");
+        btnagregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnagregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnagregarActionPerformed(evt);
@@ -115,9 +126,10 @@ public class RegistroPedidoLista extends javax.swing.JFrame {
         });
 
         btnregistrar.setBackground(new java.awt.Color(0, 0, 0));
-        btnregistrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnregistrar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnregistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnregistrar.setText("Aceptar");
+        btnregistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnregistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnregistrarActionPerformed(evt);
@@ -128,6 +140,8 @@ public class RegistroPedidoLista extends javax.swing.JFrame {
         jLabel6.setText("Cliente");
 
         combocantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
+        combocantidad.setBorder(null);
+        combocantidad.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         TablaLista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -140,6 +154,7 @@ public class RegistroPedidoLista extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        TablaLista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         TablaLista.setGridColor(new java.awt.Color(255, 255, 255));
         TablaLista.setSelectionBackground(new java.awt.Color(0, 0, 0));
         TablaLista.setSelectionForeground(new java.awt.Color(255, 255, 255));
@@ -164,7 +179,18 @@ public class RegistroPedidoLista extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel8.setText("IDpedido");
 
+        buscarproducto.setForeground(new java.awt.Color(153, 153, 153));
+        buscarproducto.setText("Selecionar Todos");
+        buscarproducto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        buscarproducto.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        buscarproducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                buscarproductoMousePressed(evt);
+            }
+        });
+
         comboTipo.setEditable(true);
+        comboTipo.setBorder(null);
 
         lblpedido.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
@@ -178,48 +204,50 @@ public class RegistroPedidoLista extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnregistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(10, 10, 10)
-                        .addComponent(lblpedido, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)
-                        .addGap(10, 10, 10)
-                        .addComponent(lblcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel2)
-                        .addGap(10, 10, 10)
-                        .addComponent(lblmeza, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(6, 6, 6)
-                        .addComponent(comboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(buscarproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)
-                        .addComponent(busquedaproducto))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(60, 60, 60)
-                        .addComponent(comboproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(combocantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22)
-                        .addComponent(txtdescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 675, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btneliminar)
-                        .addGap(607, 607, 607)
-                        .addComponent(btnagregar))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 805, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(708, 708, 708)
-                        .addComponent(btnregistrar)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(10, 10, 10)
+                                .addComponent(lblpedido, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel6)
+                                .addGap(10, 10, 10)
+                                .addComponent(lblcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel2)
+                                .addGap(10, 10, 10)
+                                .addComponent(lblmeza, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(6, 6, 6)
+                                .addComponent(comboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(buscarproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(53, 53, 53)
+                                .addComponent(busquedaproducto))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(60, 60, 60)
+                                .addComponent(comboproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(combocantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(22, 22, 22)
+                                .addComponent(txtdescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 675, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnagregar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 805, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(2, 2, 2)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,14 +293,14 @@ public class RegistroPedidoLista extends javax.swing.JFrame {
                         .addComponent(jLabel5))
                     .addComponent(txtdescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btneliminar)
-                    .addComponent(btnagregar))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnagregar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22)
-                .addComponent(btnregistrar)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(btnregistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -303,6 +331,7 @@ public class RegistroPedidoLista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnregistrarActionPerformed
 
     private void busquedaproductoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_busquedaproductoMousePressed
+         String busqueda="";
         //borrar el anterior
         comboproducto.removeAllItems();
         //busqueda nueva
@@ -312,7 +341,13 @@ public class RegistroPedidoLista extends javax.swing.JFrame {
         } else {
             tipo = String.valueOf(consulta.idtipoProducto(comboTipo.getSelectedItem().toString()));
         }
-        String busqueda=String.valueOf(buscarproducto.getText());
+        //obtener busqueda
+        if(buscarproducto.getText().equals("Selecionar Todos")){
+        
+        }else{
+            busqueda=String.valueOf(buscarproducto.getText());
+        }
+        
         consulta.llenarComboProductos(tipo,busqueda,comboproducto);
         comboproducto.setEnabled(true);
         
@@ -351,6 +386,11 @@ public class RegistroPedidoLista extends javax.swing.JFrame {
     private void TablaListaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaListaMousePressed
         btneliminar.setEnabled(true);
     }//GEN-LAST:event_TablaListaMousePressed
+
+    private void buscarproductoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscarproductoMousePressed
+        buscarproducto.setText("");
+        buscarproducto.setForeground(Color.BLACK);
+    }//GEN-LAST:event_buscarproductoMousePressed
 
     /**
      * @param args the command line arguments
@@ -414,4 +454,9 @@ public class RegistroPedidoLista extends javax.swing.JFrame {
     private javax.swing.JLabel lblpedido;
     public javax.swing.JTextField txtdescripcion;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

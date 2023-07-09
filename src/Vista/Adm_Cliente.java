@@ -82,10 +82,9 @@ public class Adm_Cliente extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("INFORME DE CLIENTES");
 
-        Tabla2.setBackground(new java.awt.Color(51, 153, 255));
         Tabla2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Tabla2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Tabla2.setModel(new javax.swing.table.DefaultTableModel(
@@ -96,6 +95,7 @@ public class Adm_Cliente extends javax.swing.JFrame {
                 "ID", "Nombre", "Apellido", "DNI", "Fecha"
             }
         ));
+        Tabla2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Tabla2.setRowHeight(35);
         Tabla2.setSelectionBackground(new java.awt.Color(0, 0, 204));
         Tabla2.setShowHorizontalLines(true);
@@ -148,11 +148,12 @@ public class Adm_Cliente extends javax.swing.JFrame {
 
         inicio2.setEditable(false);
         inicio2.setBackground(new java.awt.Color(255, 255, 255));
-        inicio2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        inicio2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         inicio2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         inicio2.setText("INICIO");
         inicio2.setAutoscrolls(false);
         inicio2.setBorder(null);
+        inicio2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         inicio2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 inicio2MouseClicked(evt);
@@ -175,11 +176,12 @@ public class Adm_Cliente extends javax.swing.JFrame {
 
         lista.setEditable(false);
         lista.setBackground(new java.awt.Color(255, 255, 255));
-        lista.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lista.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lista.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         lista.setText("LISTA DE USUARIOS");
         lista.setBorder(null);
         lista.setCaretColor(new java.awt.Color(255, 255, 255));
+        lista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lista.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listaMouseClicked(evt);
@@ -199,12 +201,13 @@ public class Adm_Cliente extends javax.swing.JFrame {
 
         cliente.setEditable(false);
         cliente.setBackground(new java.awt.Color(0, 0, 0));
-        cliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        cliente.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         cliente.setForeground(new java.awt.Color(255, 255, 255));
         cliente.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         cliente.setText("CLIENTE");
         cliente.setBorder(null);
         cliente.setCaretColor(new java.awt.Color(255, 255, 255));
+        cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 clienteMouseClicked(evt);
@@ -224,11 +227,12 @@ public class Adm_Cliente extends javax.swing.JFrame {
 
         actividades.setEditable(false);
         actividades.setBackground(new java.awt.Color(255, 255, 255));
-        actividades.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        actividades.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         actividades.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         actividades.setText("ACTIVIDADES");
         actividades.setBorder(null);
         actividades.setCaretColor(new java.awt.Color(255, 255, 255));
+        actividades.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         actividades.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 actividadesMouseClicked(evt);
@@ -248,11 +252,12 @@ public class Adm_Cliente extends javax.swing.JFrame {
 
         cerrar.setEditable(false);
         cerrar.setBackground(new java.awt.Color(255, 255, 255));
-        cerrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        cerrar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         cerrar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         cerrar.setText("CERRAR SECCION");
         cerrar.setBorder(null);
         cerrar.setCaretColor(new java.awt.Color(255, 255, 255));
+        cerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cerrarMouseClicked(evt);
@@ -272,11 +277,12 @@ public class Adm_Cliente extends javax.swing.JFrame {
 
         listapoducto.setEditable(false);
         listapoducto.setBackground(new java.awt.Color(255, 255, 255));
-        listapoducto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        listapoducto.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         listapoducto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         listapoducto.setText("LISTA DE PRODUCTOS");
         listapoducto.setBorder(null);
         listapoducto.setCaretColor(new java.awt.Color(255, 255, 255));
+        listapoducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         listapoducto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listapoductoMouseClicked(evt);
@@ -511,16 +517,12 @@ public class Adm_Cliente extends javax.swing.JFrame {
     private javax.swing.JTextField actividades;
     private javax.swing.JTextField cerrar;
     private javax.swing.JTextField cliente;
-    private javax.swing.JTextField inicio;
-    private javax.swing.JTextField inicio1;
     private javax.swing.JTextField inicio2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField lista;

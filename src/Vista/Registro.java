@@ -91,6 +91,7 @@ public class Registro extends javax.swing.JFrame {
 
         rdni.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         rdni.setBorder(null);
+        rdni.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         rdni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdniActionPerformed(evt);
@@ -99,6 +100,7 @@ public class Registro extends javax.swing.JFrame {
 
         rapellido.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         rapellido.setBorder(null);
+        rapellido.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         rapellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rapellidoActionPerformed(evt);
@@ -107,6 +109,7 @@ public class Registro extends javax.swing.JFrame {
 
         rcorreo.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         rcorreo.setBorder(null);
+        rcorreo.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         rcorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rcorreoActionPerformed(evt);
@@ -127,6 +130,7 @@ public class Registro extends javax.swing.JFrame {
 
         rcontraseña1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         rcontraseña1.setBorder(null);
+        rcontraseña1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         rcontraseña1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rcontraseña1ActionPerformed(evt);
@@ -135,6 +139,7 @@ public class Registro extends javax.swing.JFrame {
 
         rcontraseña2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         rcontraseña2.setBorder(null);
+        rcontraseña2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         rcontraseña2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rcontraseña2ActionPerformed(evt);
@@ -143,6 +148,7 @@ public class Registro extends javax.swing.JFrame {
 
         radmi.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         radmi.setBorder(null);
+        radmi.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         radmi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radmiActionPerformed(evt);
@@ -166,6 +172,7 @@ public class Registro extends javax.swing.JFrame {
 
         rnombre.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         rnombre.setBorder(null);
+        rnombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         rnombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rnombreActionPerformed(evt);
@@ -173,9 +180,10 @@ public class Registro extends javax.swing.JFrame {
         });
 
         salir.setBackground(new java.awt.Color(0, 0, 0));
-        salir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        salir.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         salir.setForeground(new java.awt.Color(255, 255, 255));
-        salir.setText("Ya tengo una Cuenta");
+        salir.setText("Login");
+        salir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         salir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 salirMouseEntered(evt);
@@ -191,9 +199,10 @@ public class Registro extends javax.swing.JFrame {
         });
 
         Registrar.setBackground(new java.awt.Color(0, 0, 0));
-        Registrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Registrar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         Registrar.setForeground(new java.awt.Color(255, 255, 255));
         Registrar.setText("Registarse");
+        Registrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Registrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 RegistrarMouseEntered(evt);
@@ -216,7 +225,7 @@ public class Registro extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(salir)
+                        .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,7 +249,7 @@ public class Registro extends javax.swing.JFrame {
                                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(rcorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(Registrar)
+                                .addComponent(Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(radmi, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(rcontraseña2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -310,9 +319,9 @@ public class Registro extends javax.swing.JFrame {
                 .addComponent(jLabel20)
                 .addGap(50, 50, 50)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(salir)
+                    .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(Registrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Registrar, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                         .addGap(1, 1, 1)))
                 .addGap(0, 0, 0))
         );
@@ -331,7 +340,7 @@ public class Registro extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(11, 11, 11)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);

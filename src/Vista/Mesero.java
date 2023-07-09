@@ -6,9 +6,11 @@
 package Vista;
 
 import Modelo.Querry;
+import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -71,11 +73,22 @@ public class Mesero extends javax.swing.JFrame {
         } catch (SQLException e) {
         }
     }
+    
+    public void colorbtnhorver(JButton boton) {
+        boton.setBackground(Color.WHITE);
+        boton.setForeground(Color.BLACK);
+    }
+    
+    public void colorbtn(JButton boton) {
+        boton.setBackground(Color.BLACK);
+        boton.setForeground(Color.WHITE);
+    }    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         NuevoPedido = new javax.swing.JButton();
         GenerarBoleta = new javax.swing.JButton();
@@ -84,7 +97,7 @@ public class Mesero extends javax.swing.JFrame {
         Tabla = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         Txtdato = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        btnbuscar = new javax.swing.JButton();
         bntActualizarTabla = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         banner = new javax.swing.JLabel();
@@ -102,15 +115,26 @@ public class Mesero extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         NuevoPedido.setBackground(new java.awt.Color(0, 0, 0));
-        NuevoPedido.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        NuevoPedido.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         NuevoPedido.setForeground(new java.awt.Color(255, 255, 255));
         NuevoPedido.setText("Nuevo Pedido");
+        NuevoPedido.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        NuevoPedido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                NuevoPedidoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                NuevoPedidoMouseExited(evt);
+            }
+        });
         NuevoPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NuevoPedidoActionPerformed(evt);
@@ -118,9 +142,18 @@ public class Mesero extends javax.swing.JFrame {
         });
 
         GenerarBoleta.setBackground(new java.awt.Color(0, 0, 0));
-        GenerarBoleta.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        GenerarBoleta.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         GenerarBoleta.setForeground(new java.awt.Color(255, 255, 255));
         GenerarBoleta.setText("Generar Factura");
+        GenerarBoleta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        GenerarBoleta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                GenerarBoletaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                GenerarBoletaMouseExited(evt);
+            }
+        });
         GenerarBoleta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GenerarBoletaActionPerformed(evt);
@@ -141,24 +174,36 @@ public class Mesero extends javax.swing.JFrame {
                 "Nro Pedido", "Mesa", "Cantidad", "Plato", "Descripcion", "Cliente", "Chef", "Estado", "Atendido"
             }
         ));
+        Tabla.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jScrollPane1.setViewportView(Tabla);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel3.setText("Buscar por Cliente");
 
+        Txtdato.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Txtdato.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         Txtdato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtdatoActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(0, 0, 0));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Buscar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnbuscar.setBackground(new java.awt.Color(0, 0, 0));
+        btnbuscar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnbuscar.setForeground(new java.awt.Color(255, 255, 255));
+        btnbuscar.setText("Buscar");
+        btnbuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnbuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnbuscarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnbuscarMouseExited(evt);
+            }
+        });
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnbuscarActionPerformed(evt);
             }
         });
 
@@ -166,6 +211,16 @@ public class Mesero extends javax.swing.JFrame {
         bntActualizarTabla.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         bntActualizarTabla.setForeground(new java.awt.Color(255, 255, 255));
         bntActualizarTabla.setText("Actualizar tabla");
+        bntActualizarTabla.setBorderPainted(false);
+        bntActualizarTabla.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bntActualizarTabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bntActualizarTablaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bntActualizarTablaMouseExited(evt);
+            }
+        });
         bntActualizarTabla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bntActualizarTablaActionPerformed(evt);
@@ -179,14 +234,22 @@ public class Mesero extends javax.swing.JFrame {
 
         btnCerrarSecion.setEditable(false);
         btnCerrarSecion.setBackground(new java.awt.Color(255, 0, 51));
-        btnCerrarSecion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCerrarSecion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnCerrarSecion.setForeground(new java.awt.Color(255, 255, 255));
         btnCerrarSecion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         btnCerrarSecion.setText("Cerrar sesión");
         btnCerrarSecion.setToolTipText("");
+        btnCerrarSecion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnCerrarSecion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCerrarSecion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCerrarSecionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCerrarSecionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCerrarSecionMouseExited(evt);
             }
         });
         btnCerrarSecion.addActionListener(new java.awt.event.ActionListener() {
@@ -196,9 +259,18 @@ public class Mesero extends javax.swing.JFrame {
         });
 
         GenerarBoleta1.setBackground(new java.awt.Color(0, 0, 0));
-        GenerarBoleta1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        GenerarBoleta1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         GenerarBoleta1.setForeground(new java.awt.Color(255, 255, 255));
         GenerarBoleta1.setText("Generar Boleta");
+        GenerarBoleta1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        GenerarBoleta1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                GenerarBoleta1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                GenerarBoleta1MouseExited(evt);
+            }
+        });
         GenerarBoleta1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GenerarBoleta1ActionPerformed(evt);
@@ -215,41 +287,42 @@ public class Mesero extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(banner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCerrarSecion, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCerrarSecion, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
                         .addGap(39, 39, 39))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                        .addGap(25, 25, 25)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(NuevoPedido)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(GenerarBoleta, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(GenerarBoleta)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(GenerarBoleta1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(GenerarBoleta1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(Txtdato, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton4))
+                                .addComponent(btnbuscar))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1039, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(bntActualizarTabla)))
-                        .addContainerGap(26, Short.MAX_VALUE))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1039, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(bntActualizarTabla)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap(25, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
+                        .addGap(15, 15, 15)
                         .addComponent(jLabel5))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
@@ -260,22 +333,22 @@ public class Mesero extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Txtdato, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Txtdato, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(GenerarBoleta1, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                            .addComponent(GenerarBoleta1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                             .addComponent(GenerarBoleta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(NuevoPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bntActualizarTabla)
+                    .addComponent(bntActualizarTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -303,11 +376,11 @@ public class Mesero extends javax.swing.JFrame {
         
     }//GEN-LAST:event_GenerarBoletaActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
         String dato=Txtdato.getText();
         Resultadobusqueda(dato);
        
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void TxtdatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtdatoActionPerformed
         // TODO add your handling code here:
@@ -333,6 +406,58 @@ public class Mesero extends javax.swing.JFrame {
        Boleta boleta= new Boleta();
        boleta.setVisible(true);
     }//GEN-LAST:event_GenerarBoleta1ActionPerformed
+
+    private void NuevoPedidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NuevoPedidoMouseEntered
+        colorbtnhorver(NuevoPedido);
+    }//GEN-LAST:event_NuevoPedidoMouseEntered
+
+    private void NuevoPedidoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NuevoPedidoMouseExited
+        colorbtn(NuevoPedido);
+    }//GEN-LAST:event_NuevoPedidoMouseExited
+
+    private void GenerarBoletaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GenerarBoletaMouseEntered
+        colorbtnhorver(GenerarBoleta);
+        
+    }//GEN-LAST:event_GenerarBoletaMouseEntered
+
+    private void GenerarBoletaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GenerarBoletaMouseExited
+        colorbtn(GenerarBoleta);
+    }//GEN-LAST:event_GenerarBoletaMouseExited
+
+    private void GenerarBoleta1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GenerarBoleta1MouseEntered
+        colorbtnhorver(GenerarBoleta1);
+    }//GEN-LAST:event_GenerarBoleta1MouseEntered
+
+    private void GenerarBoleta1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GenerarBoleta1MouseExited
+        colorbtn(GenerarBoleta1);
+    }//GEN-LAST:event_GenerarBoleta1MouseExited
+
+    private void btnbuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbuscarMouseEntered
+        colorbtnhorver(btnbuscar);
+    }//GEN-LAST:event_btnbuscarMouseEntered
+
+    private void btnbuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbuscarMouseExited
+        colorbtn(btnbuscar);
+    }//GEN-LAST:event_btnbuscarMouseExited
+
+    private void bntActualizarTablaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bntActualizarTablaMouseEntered
+        colorbtnhorver(bntActualizarTabla);
+    }//GEN-LAST:event_bntActualizarTablaMouseEntered
+
+    private void bntActualizarTablaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bntActualizarTablaMouseExited
+        
+        colorbtn(bntActualizarTabla);
+    }//GEN-LAST:event_bntActualizarTablaMouseExited
+
+    private void btnCerrarSecionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSecionMouseEntered
+        btnCerrarSecion.setBackground(Color.WHITE);
+        btnCerrarSecion.setForeground(Color.RED);
+    }//GEN-LAST:event_btnCerrarSecionMouseEntered
+
+    private void btnCerrarSecionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSecionMouseExited
+        btnCerrarSecion.setBackground(Color.RED);
+        btnCerrarSecion.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnCerrarSecionMouseExited
 
     /**
      * @param args the command line arguments
@@ -379,7 +504,8 @@ public class Mesero extends javax.swing.JFrame {
     private javax.swing.JLabel banner;
     private javax.swing.JButton bntActualizarTabla;
     private javax.swing.JTextField btnCerrarSecion;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnbuscar;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;

@@ -212,11 +212,11 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
-        jPanel7.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         jPanel7.setToolTipText("");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 22)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel1.setText("Nuevo  Usuario");
 
         jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -227,7 +227,6 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
 
         jLabel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        rdni.setBackground(new java.awt.Color(0, 204, 204));
         rdni.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         rdni.setBorder(null);
         rdni.addActionListener(new java.awt.event.ActionListener() {
@@ -236,7 +235,6 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
             }
         });
 
-        rapellido.setBackground(new java.awt.Color(0, 204, 204));
         rapellido.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         rapellido.setBorder(null);
         rapellido.addActionListener(new java.awt.event.ActionListener() {
@@ -245,7 +243,6 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
             }
         });
 
-        rcorreo.setBackground(new java.awt.Color(0, 204, 204));
         rcorreo.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         rcorreo.setBorder(null);
         rcorreo.addActionListener(new java.awt.event.ActionListener() {
@@ -254,19 +251,18 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel3.setText("Nombres:");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel4.setText("Apellido:");
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel7.setText("DNI:");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel5.setText("Correo:");
 
-        rcontraseña1.setBackground(new java.awt.Color(0, 204, 204));
         rcontraseña1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         rcontraseña1.setBorder(null);
         rcontraseña1.addActionListener(new java.awt.event.ActionListener() {
@@ -275,7 +271,6 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
             }
         });
 
-        radmi.setBackground(new java.awt.Color(0, 204, 204));
         radmi.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         radmi.setBorder(null);
         radmi.addActionListener(new java.awt.event.ActionListener() {
@@ -286,15 +281,14 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
 
         jLabel17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel6.setText("Contraseña");
 
         jLabel19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel11.setText("Tipo de Usario:");
 
-        rnombre.setBackground(new java.awt.Color(0, 204, 204));
         rnombre.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         rnombre.setBorder(null);
         rnombre.addActionListener(new java.awt.event.ActionListener() {
@@ -386,7 +380,9 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
+        jScrollPane1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
 
         tb_Usuarios.setBackground(new java.awt.Color(51, 153, 255));
         tb_Usuarios.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -408,12 +404,13 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tb_Usuarios);
 
-        jPanel6.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
 
         btnNuevo.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agregar-archivo.png"))); // NOI18N
         btnNuevo.setText("Nuevo");
+        btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoActionPerformed(evt);
@@ -423,6 +420,7 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
         btnGuardar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/disquete.png"))); // NOI18N
         btnGuardar.setText("Guardar");
+        btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
@@ -432,6 +430,7 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
         btnActualizar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/boton-actualizar.png"))); // NOI18N
         btnActualizar.setText("Actualizar");
+        btnActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarActionPerformed(evt);
@@ -441,6 +440,7 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/senal.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -450,6 +450,7 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
         btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salida.png"))); // NOI18N
         btnSalir.setText("Salir");
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
@@ -459,6 +460,7 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
         btnEliminar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/boton-x.png"))); // NOI18N
         btnEliminar.setText("Elliminar");
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -521,7 +523,7 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 0, 820, 690));
@@ -552,11 +554,12 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
 
         inicio.setEditable(false);
         inicio.setBackground(new java.awt.Color(255, 255, 255));
-        inicio.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        inicio.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         inicio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         inicio.setText("INICIO");
         inicio.setAutoscrolls(false);
         inicio.setBorder(null);
+        inicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         inicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 inicioMouseClicked(evt);
@@ -579,12 +582,13 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
 
         lista.setEditable(false);
         lista.setBackground(new java.awt.Color(0, 0, 0));
-        lista.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lista.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lista.setForeground(new java.awt.Color(255, 255, 255));
         lista.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         lista.setText("LISTA DE USUARIOS");
         lista.setBorder(null);
         lista.setCaretColor(new java.awt.Color(255, 255, 255));
+        lista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lista.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listaMouseClicked(evt);
@@ -604,11 +608,12 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
 
         cliente.setEditable(false);
         cliente.setBackground(new java.awt.Color(255, 255, 255));
-        cliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        cliente.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         cliente.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         cliente.setText("CLIENTE");
         cliente.setBorder(null);
         cliente.setCaretColor(new java.awt.Color(255, 255, 255));
+        cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 clienteMouseClicked(evt);
@@ -628,11 +633,12 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
 
         actividades.setEditable(false);
         actividades.setBackground(new java.awt.Color(255, 255, 255));
-        actividades.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        actividades.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         actividades.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         actividades.setText("ACTIVIDADES");
         actividades.setBorder(null);
         actividades.setCaretColor(new java.awt.Color(255, 255, 255));
+        actividades.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         actividades.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 actividadesMouseClicked(evt);
@@ -652,11 +658,12 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
 
         cerrar.setEditable(false);
         cerrar.setBackground(new java.awt.Color(255, 255, 255));
-        cerrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        cerrar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         cerrar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         cerrar.setText("CERRAR SECCION");
         cerrar.setBorder(null);
         cerrar.setCaretColor(new java.awt.Color(255, 255, 255));
+        cerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cerrarMouseClicked(evt);
@@ -676,11 +683,12 @@ public class Adm_ListaUsuario extends javax.swing.JFrame {
 
         listapoducto.setEditable(false);
         listapoducto.setBackground(new java.awt.Color(255, 255, 255));
-        listapoducto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        listapoducto.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         listapoducto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         listapoducto.setText("LISTA DE PRODUCTOS");
         listapoducto.setBorder(null);
         listapoducto.setCaretColor(new java.awt.Color(255, 255, 255));
+        listapoducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         listapoducto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listapoductoMouseClicked(evt);

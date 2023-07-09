@@ -6,6 +6,7 @@ package Vista;
 
 import Modelo.Boletas;
 import Modelo.Querry;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.print.PageFormat;
@@ -15,7 +16,6 @@ import static java.awt.print.Printable.PAGE_EXISTS;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -36,13 +36,14 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
     public Boleta() {
         initComponents();
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/Icon.png")).getImage());
-        this.setTitle("BOLETA");
+        this.setTitle("Boleta");
         this.setLocationRelativeTo(null);
-        Resultadobusqueda("", "");
-         //OBTENER EL ID_Boleta
-        int num=dao.generarIdBoleta();
-       lblNumeroBoleta.setText(String.valueOf(num));
-       
+        Resultadobusqueda(" ", " ");
+        //OBTENER EL ID_Boleta
+        int num = dao.generarIdBoleta();
+        lblNumeroBoleta.setText(String.valueOf(num));
+        
+
     }
     
     
@@ -50,10 +51,11 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
         //Modelo de la Tabla
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("idPedido");
-        modelo.addColumn("Descripción");
+        modelo.addColumn("Producto");
         modelo.addColumn("Cantidad");
         modelo.addColumn("Precio");
         Tabla.setModel(modelo);
+        
         //Clasequery
         String[] datos = new String[4];
         Querry qr = new Querry();
@@ -81,7 +83,6 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
         }
         
         MontoTotal();
-        
         
     }
     
@@ -137,16 +138,16 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
         txtTelefCli = new javax.swing.JTextField();
         btnImprimir = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         lblId = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
-        PanelBoleta.setBackground(new java.awt.Color(0, 204, 204));
-        PanelBoleta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        PanelBoleta.setBackground(new java.awt.Color(255, 255, 255));
+        PanelBoleta.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo3.png"))); // NOI18N
 
@@ -158,31 +159,21 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
 
         Tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "IdPedido", "Descriçión", "Cantidad", "Precio"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                true, true, true, false
-            };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
             }
-        });
+        ));
         Tabla.setRowHeight(30);
         Tabla.setShowHorizontalLines(true);
         jScrollPane2.setViewportView(Tabla);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setText("DNI Cli:");
+        jLabel2.setText("DNI Cliente:");
 
-        txtClienteDni.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        txtClienteDni.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtClienteDni.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtClienteDni.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtClienteDniKeyTyped(evt);
@@ -196,27 +187,27 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
         txtDate.setDateFormatString("yyyy-MM-dd");
         txtDate.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
 
-        btnBuscar.setBackground(new java.awt.Color(0, 204, 204));
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/consulta.png"))); // NOI18N
+        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
             }
         });
 
-        jPanel3.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel12.setText("RUC: ");
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel13.setText("20549879277");
 
-        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("BOLETA DE VENTA");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -226,7 +217,7 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addGap(94, 94, 94))
+                .addGap(85, 85, 85))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,10 +227,10 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setText("N°");
 
-        lblNumeroBoleta.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblNumeroBoleta.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblNumeroBoleta.setText("00000000");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -255,7 +246,7 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel13))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
+                        .addGap(122, 122, 122)
                         .addComponent(jLabel5)
                         .addGap(18, 18, 18)
                         .addComponent(lblNumeroBoleta)))
@@ -280,7 +271,8 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setText("Señor(a):");
 
-        txtNombreCli.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        txtNombreCli.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtNombreCli.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtNombreCli.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombreCliKeyTyped(evt);
@@ -290,7 +282,8 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel9.setText("Dirección:");
 
-        txtDireccion.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        txtDireccion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtDireccion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtDireccion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDireccionKeyTyped(evt);
@@ -300,7 +293,8 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setText("Telef:");
 
-        txtTelefCli.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        txtTelefCli.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtTelefCli.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout PanelBoletaLayout = new javax.swing.GroupLayout(PanelBoleta);
         PanelBoleta.setLayout(PanelBoletaLayout);
@@ -313,31 +307,29 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
                         .addComponent(jScrollPane2)
                         .addContainerGap())
                     .addGroup(PanelBoletaLayout.createSequentialGroup()
-                        .addGroup(PanelBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(PanelBoletaLayout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtNombreCli, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtTelefCli, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29))
-                            .addGroup(PanelBoletaLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(28, 28, 28)
-                                .addComponent(txtClienteDni, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnBuscar)))
-                        .addGap(0, 1, Short.MAX_VALUE))))
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtNombreCli, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTelefCli, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelBoletaLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtClienteDni, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnBuscar)
+                        .addGap(7, 7, 7))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelBoletaLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -361,24 +353,27 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
                     .addGroup(PanelBoletaLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addGroup(PanelBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(PanelBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2)
-                        .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(PanelBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(txtClienteDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnBuscar))
-                .addGap(15, 15, 15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(PanelBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtDireccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelBoletaLayout.createSequentialGroup()
+                        .addGroup(PanelBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel2)
+                                .addComponent(txtClienteDni, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addGap(20, 20, 20))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelBoletaLayout.createSequentialGroup()
+                        .addComponent(btnBuscar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(PanelBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtDireccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel8)
-                        .addComponent(txtNombreCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNombreCli, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel9)
                         .addComponent(jLabel6)
-                        .addComponent(txtTelefCli, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtTelefCli, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -392,32 +387,59 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
         btnImprimir.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         btnImprimir.setForeground(new java.awt.Color(255, 255, 255));
         btnImprimir.setText("Imprimir");
+        btnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnImprimir.setPreferredSize(new java.awt.Dimension(100, 100));
+        btnImprimir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnImprimirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnImprimirMouseExited(evt);
+            }
+        });
         btnImprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnImprimirActionPerformed(evt);
             }
         });
 
-        btnRegistrar.setBackground(new java.awt.Color(0, 204, 51));
+        btnRegistrar.setBackground(new java.awt.Color(0, 0, 0));
         btnRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setText("Registrar");
+        btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegistrar.setPreferredSize(new java.awt.Dimension(100, 100));
+        btnRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegistrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegistrarMouseExited(evt);
+            }
+        });
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 0, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Salir");
-        jButton1.setPreferredSize(new java.awt.Dimension(100, 100));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setBackground(new java.awt.Color(255, 0, 0));
+        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setText("Salir");
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.setPreferredSize(new java.awt.Dimension(100, 100));
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
+        });
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
 
@@ -437,7 +459,7 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
                 .addGap(62, 62, 62)
                 .addComponent(lblId, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(176, 176, 176)
                 .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
@@ -450,11 +472,11 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnImprimir, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                        .addComponent(btnImprimir, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                         .addComponent(lblId))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addComponent(btnRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                        .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -462,9 +484,7 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -556,9 +576,39 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
         
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnImprimirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImprimirMouseEntered
+        btnImprimir.setBackground(Color.white);
+        btnImprimir.setForeground(new Color(0,102,255));
+    }//GEN-LAST:event_btnImprimirMouseEntered
+
+    private void btnImprimirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImprimirMouseExited
+        btnImprimir.setBackground(new Color(0,102,255));
+        btnImprimir.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnImprimirMouseExited
+
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+        btnSalir.setBackground(Color.white);
+        btnSalir.setForeground(Color.RED);
+    }//GEN-LAST:event_btnSalirMouseEntered
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        btnSalir.setBackground(Color.RED);
+        btnSalir.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnSalirMouseExited
+
+    private void btnRegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseEntered
+        btnRegistrar.setBackground(Color.white);
+        btnRegistrar.setForeground(Color.BLACK);
+    }//GEN-LAST:event_btnRegistrarMouseEntered
+
+    private void btnRegistrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseExited
+        btnRegistrar.setBackground(Color.BLACK);
+        btnRegistrar.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnRegistrarMouseExited
 
     /**
      * @param args the command line arguments
@@ -602,7 +652,7 @@ public class Boleta extends javax.swing.JFrame  implements Printable {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;

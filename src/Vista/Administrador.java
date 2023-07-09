@@ -155,6 +155,7 @@ public class Administrador extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -228,11 +229,9 @@ public class Administrador extends javax.swing.JFrame {
 
         JCDesde.setToolTipText("");
         JCDesde.setDateFormatString("yyyy-MM-dd");
-        JCDesde.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
 
         JcHasta.setToolTipText("");
         JcHasta.setDateFormatString("yyyy-MM-dd");
-        JcHasta.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
 
         lblHasta.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblHasta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -346,12 +345,13 @@ public class Administrador extends javax.swing.JFrame {
 
         inicio.setEditable(false);
         inicio.setBackground(new java.awt.Color(0, 0, 0));
-        inicio.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        inicio.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         inicio.setForeground(new java.awt.Color(255, 255, 255));
         inicio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         inicio.setText("INICIO");
         inicio.setAutoscrolls(false);
         inicio.setBorder(null);
+        inicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         inicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 inicioMouseClicked(evt);
@@ -374,11 +374,12 @@ public class Administrador extends javax.swing.JFrame {
 
         lista.setEditable(false);
         lista.setBackground(new java.awt.Color(255, 255, 255));
-        lista.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lista.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lista.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         lista.setText("LISTA DE USUARIOS");
         lista.setBorder(null);
         lista.setCaretColor(new java.awt.Color(255, 255, 255));
+        lista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lista.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listaMouseClicked(evt);
@@ -398,11 +399,12 @@ public class Administrador extends javax.swing.JFrame {
 
         cliente.setEditable(false);
         cliente.setBackground(new java.awt.Color(255, 255, 255));
-        cliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        cliente.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         cliente.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         cliente.setText("CLIENTE");
         cliente.setBorder(null);
         cliente.setCaretColor(new java.awt.Color(255, 255, 255));
+        cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 clienteMouseClicked(evt);
@@ -422,7 +424,7 @@ public class Administrador extends javax.swing.JFrame {
 
         actividades.setEditable(false);
         actividades.setBackground(new java.awt.Color(255, 255, 255));
-        actividades.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        actividades.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         actividades.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         actividades.setText("ACTIVIDADES");
         actividades.setBorder(null);
@@ -446,7 +448,7 @@ public class Administrador extends javax.swing.JFrame {
 
         cerrar.setEditable(false);
         cerrar.setBackground(new java.awt.Color(255, 255, 255));
-        cerrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        cerrar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         cerrar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         cerrar.setText("CERRAR SECCION");
         cerrar.setBorder(null);
@@ -470,11 +472,12 @@ public class Administrador extends javax.swing.JFrame {
 
         listapoducto.setEditable(false);
         listapoducto.setBackground(new java.awt.Color(255, 255, 255));
-        listapoducto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        listapoducto.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         listapoducto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         listapoducto.setText("LISTA DE PRODUCTOS");
         listapoducto.setBorder(null);
         listapoducto.setCaretColor(new java.awt.Color(255, 255, 255));
+        listapoducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         listapoducto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listapoductoMouseClicked(evt);

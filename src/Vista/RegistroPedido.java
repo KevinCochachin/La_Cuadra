@@ -2,6 +2,7 @@
 package Vista;
 
 import Modelo.Querry;
+import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -100,9 +101,10 @@ public final class RegistroPedido extends javax.swing.JFrame{
         });
 
         btncancelar.setBackground(new java.awt.Color(0, 0, 0));
-        btncancelar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btncancelar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btncancelar.setForeground(new java.awt.Color(255, 255, 255));
         btncancelar.setText("Cancelar");
+        btncancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btncancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btncancelarActionPerformed(evt);
@@ -110,9 +112,10 @@ public final class RegistroPedido extends javax.swing.JFrame{
         });
 
         btnregistrar.setBackground(new java.awt.Color(0, 0, 0));
-        btnregistrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnregistrar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnregistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnregistrar.setText("Aceptar");
+        btnregistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnregistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnregistrarActionPerformed(evt);
@@ -131,13 +134,22 @@ public final class RegistroPedido extends javax.swing.JFrame{
 
         busquedacliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/consulta.png"))); // NOI18N
         busquedacliente.setLabelFor(combocliente);
-        busquedacliente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        busquedacliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         busquedacliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 busquedaclienteMousePressed(evt);
             }
         });
 
+        buscarcliente.setForeground(new java.awt.Color(153, 153, 153));
+        buscarcliente.setText("Selecionar Todos");
+        buscarcliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        buscarcliente.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        buscarcliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                buscarclienteMousePressed(evt);
+            }
+        });
         buscarcliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buscarclienteActionPerformed(evt);
@@ -160,9 +172,9 @@ public final class RegistroPedido extends javax.swing.JFrame{
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btncancelar)
+                        .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnregistrar))
+                        .addComponent(btnregistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -216,7 +228,7 @@ public final class RegistroPedido extends javax.swing.JFrame{
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btncancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                    .addComponent(btnregistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnregistrar, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
         );
 
@@ -280,8 +292,13 @@ public final class RegistroPedido extends javax.swing.JFrame{
     }//GEN-LAST:event_comboclienteActionPerformed
 
     private void busquedaclienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_busquedaclienteMousePressed
-        combocliente.removeAllItems();  
-        String dato=String.valueOf(buscarcliente.getText());
+        combocliente.removeAllItems();
+        String dato;
+        if(buscarcliente.getText().equals("Selecionar Todos")){
+            dato="";
+        }else{
+            dato=String.valueOf(buscarcliente.getText());
+        }
         consulta.llenarClientesCombo(combocliente, dato);
         combocliente.setEnabled(true);
     }//GEN-LAST:event_busquedaclienteMousePressed
@@ -293,6 +310,11 @@ public final class RegistroPedido extends javax.swing.JFrame{
     private void combomesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combomesaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_combomesaActionPerformed
+
+    private void buscarclienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscarclienteMousePressed
+        buscarcliente.setText("");
+        buscarcliente.setForeground(Color.BLACK);
+    }//GEN-LAST:event_buscarclienteMousePressed
 
     /**
      * @param args the command line arguments
