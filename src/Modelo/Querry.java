@@ -1,6 +1,7 @@
 package Modelo;
 //package
 
+
 import Controlador.ConexionMysql;
 import java.awt.HeadlessException;
 import java.sql.PreparedStatement;
@@ -538,7 +539,7 @@ public class Querry extends ConexionMysql {
                 p.setNombre(rs.getString(2));
                 p.setApellido(rs.getString(3));
                 p.setDni(rs.getInt(4));
-                p.setFecha(rs.getDate(5));
+                p.setTelefono(rs.getInt(5));
                 datos.add(p);
             }
 
@@ -878,6 +879,47 @@ public class Querry extends ConexionMysql {
         }
         return idCli;
     }
+        
+        
+        public int generarIdReserva() {
+        conectarBDD();
+        int idRes = 0;
+        try {
+            st = conexion.createStatement();
+            String querry = "SELECT MAX(registro_llegada.idRegistroLlegada) FROM registro_llegada";
+            rs = st.executeQuery(querry);
+            if (rs.next()) {
+                idRes = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+        }
+        idRes += 1;
+        while (consultarIdLista(idRes) != 0) {
+            idRes += 1;
+        }
+        return idRes;
+    }
+        
+    public List listarfecha(){
+         conectarBDD();
+         List<Fecharecepcion> datos=new ArrayList<>();
+         try {
+              ps = conexion.prepareStatement("SELECT * FROM registro_llegada;");
+                                             
+              rs=ps.executeQuery();
+              while (rs.next()) {
+                  Fecharecepcion f=new Fecharecepcion();
+                  f.setIdfecha(rs.getInt(1));
+                  f.setIdcliente(rs.getInt(2));
+                  f.setFechareserva(rs.getDate(3));
+                  f.setFechallegada(rs.getDate(4));
+                 datos.add(f);
+              }
+              
+             } catch (Exception e) {
+             }
+         return datos;
+     }
     
     
     
@@ -894,6 +936,7 @@ public class Querry extends ConexionMysql {
                  p.setNombre(rs.getString(2));
                   p.setApellido(rs.getString(3));
                   p.setDni(rs.getInt(4));
+                  p.setTelefono(rs.getInt(5));
                   datos.add(p);
               }
               

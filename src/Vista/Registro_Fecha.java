@@ -6,7 +6,7 @@ import Vista.Recepcion;
 import java.util.List;
 import java.lang.String;
 import Controlador.ConexionMysql;
-//import Modelo.Fecharecepcion;
+import Modelo.Fecharecepcion;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -16,13 +16,13 @@ import javax.swing.table.DefaultTableModel;
 public class Registro_Fecha extends javax.swing.JFrame {
     ConexionMysql con= new ConexionMysql();
     private String codcli;
-        private String nomcli;
+    private String nomcli;
     private String dnicli;
-   // Fecharecepcion fr= new Fecharecepcion();
+    Fecharecepcion fr= new Fecharecepcion();
      DefaultTableModel modelofecha = new DefaultTableModel();
     public Registro_Fecha() {
         initComponents();
-    //    cargar(Tablafecha);
+        cargar(Tablafecha);
     }
     public void setCod(String codcli){
         this.codcli=codcli;
@@ -38,7 +38,7 @@ public class Registro_Fecha extends javax.swing.JFrame {
         dnitxt.setText(dnicli);
     }
        
-    /*public void cargar (JTable Tablafecha){
+    public void cargar (JTable Tablafecha){
        Querry dao = new Querry();
         modelofecha = (DefaultTableModel) Tablafecha.getModel();
         List<Fecharecepcion> lista = dao.listarfecha();
@@ -46,11 +46,11 @@ public class Registro_Fecha extends javax.swing.JFrame {
         for (int i = 0; i < lista.size(); i++) {
             objeto[0] = lista.get(i).getIdcliente();
             objeto[1] = lista.get(i).getFechallegada();
-            objeto[3] = lista.get(i).getFechareserva();
+            objeto[2] = lista.get(i).getFechareserva();
             modelofecha.addRow(objeto);    
            }
         Tablafecha.setModel(modelofecha);
-    }*/
+    }
         
  ///////////////////////////////////////////////// LISTAR TABLA ORIGINAL       
  //     public void cargar (JTable Tablafecha){
@@ -199,11 +199,11 @@ public class Registro_Fecha extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(codigotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(codigotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(clientetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -304,18 +304,18 @@ public class Registro_Fecha extends javax.swing.JFrame {
 
     private void btnregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarActionPerformed
        Querry dao = new Querry();
-       /*int id=dao.generarIdReserva();
+       int id=dao.generarIdReserva();
         
         try{
                 con.st= con.getconexion().createStatement();
-                con.st.executeUpdate("INSERT INTO `registro_llegada` (`idRegistroLlegada`, `idCliente`, `Fecha_Reserva`, `Fecha_LLegada`) VALUES ('"+id+"', '"+clientetxt.getText()+"', '"+((JTextField)fechareservacion.getDateEditor()).getText()+"', '"+((JTextField)fechallegada.getDateEditor()).getText()+"');");
+                con.st.executeUpdate("INSERT INTO `registro_llegada` (`idRegistroLlegada`, `idCliente`, `Fecha_Reserva`, `Feha_LLegada`) VALUES ('"+id+"', '"+codigotxt.getText()+"', '"+((JTextField)fechareservacion.getDateEditor()).getText()+"', '"+((JTextField)fechallegada.getDateEditor()).getText()+"');");
 
                 JOptionPane.showMessageDialog(null, "Fecha de reserva registrada");
                 this.setVisible(false);
             } catch (SQLException ex){
                 JOptionPane.showMessageDialog(null, "fallo de registro"+ex);
             }
-              this.setVisible(false);*/
+              this.setVisible(false);
 
     }//GEN-LAST:event_btnregistrarActionPerformed
 
@@ -348,6 +348,10 @@ public class Registro_Fecha extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Registro_Fecha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

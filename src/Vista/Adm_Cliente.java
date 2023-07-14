@@ -46,7 +46,7 @@ public class Adm_Cliente extends javax.swing.JFrame {
             objeto[1] = lista.get(i).getNombre();
             objeto[2] = lista.get(i).getApellido();
             objeto[3] = lista.get(i).getDni();
-            objeto[4] = lista.get(i).getFecha();
+            objeto[4] = lista.get(i).getTelefono();
             modelo.addRow(objeto);    
    } 
         Tabla2.setModel(modelo);

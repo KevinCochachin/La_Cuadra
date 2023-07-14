@@ -123,7 +123,6 @@ public class Administrador extends javax.swing.JFrame {
         btVentas = new javax.swing.JRadioButton();
         btClientesrecurrentes = new javax.swing.JRadioButton();
         btClientesNuevos = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
         btProductosmenos = new javax.swing.JRadioButton();
         ComboElecion = new javax.swing.JComboBox<>();
         GraficarTablas = new javax.swing.JButton();
@@ -155,7 +154,7 @@ public class Administrador extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -186,8 +185,11 @@ public class Administrador extends javax.swing.JFrame {
         });
 
         btClientesNuevos.setText("Clientes Nuevos");
-
-        jRadioButton6.setText("jRadioButton1");
+        btClientesNuevos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btClientesNuevosActionPerformed(evt);
+            }
+        });
 
         btProductosmenos.setText("Productos Menos Consumidos");
         btProductosmenos.addActionListener(new java.awt.event.ActionListener() {
@@ -248,25 +250,24 @@ public class Administrador extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btMesero)
+                            .addComponent(btVentas))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btProductosmas)
+                            .addComponent(btProductosmenos))
+                        .addGap(85, 85, 85)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btClientesrecurrentes)
+                            .addComponent(btClientesNuevos, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel1)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btMesero)
-                                    .addComponent(btVentas))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btProductosmas)
-                                    .addComponent(btProductosmenos))
-                                .addGap(30, 30, 30)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btClientesrecurrentes)
-                                    .addComponent(btClientesNuevos, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(30, 30, 30)
-                                .addComponent(jRadioButton6)))
-                        .addContainerGap(312, Short.MAX_VALUE))
+                            .addComponent(jLabel1))
+                        .addContainerGap(875, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
@@ -298,7 +299,6 @@ public class Administrador extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btProductosmas)
                             .addComponent(btClientesrecurrentes)
-                            .addComponent(jRadioButton6)
                             .addComponent(btVentas))
                         .addGap(20, 20, 20)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -318,7 +318,7 @@ public class Administrador extends javax.swing.JFrame {
                         .addGap(63, 63, 63)
                         .addComponent(panelGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(GraficarTablas, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 0, 970, 690));
@@ -351,7 +351,7 @@ public class Administrador extends javax.swing.JFrame {
         inicio.setText("INICIO");
         inicio.setAutoscrolls(false);
         inicio.setBorder(null);
-        inicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        inicio.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         inicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 inicioMouseClicked(evt);
@@ -379,7 +379,7 @@ public class Administrador extends javax.swing.JFrame {
         lista.setText("LISTA DE USUARIOS");
         lista.setBorder(null);
         lista.setCaretColor(new java.awt.Color(255, 255, 255));
-        lista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lista.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lista.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listaMouseClicked(evt);
@@ -404,7 +404,7 @@ public class Administrador extends javax.swing.JFrame {
         cliente.setText("CLIENTE");
         cliente.setBorder(null);
         cliente.setCaretColor(new java.awt.Color(255, 255, 255));
-        cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 clienteMouseClicked(evt);
@@ -477,7 +477,7 @@ public class Administrador extends javax.swing.JFrame {
         listapoducto.setText("LISTA DE PRODUCTOS");
         listapoducto.setBorder(null);
         listapoducto.setCaretColor(new java.awt.Color(255, 255, 255));
-        listapoducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        listapoducto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         listapoducto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listapoductoMouseClicked(evt);
@@ -684,6 +684,7 @@ public class Administrador extends javax.swing.JFrame {
         }else if(btClientesrecurrentes.isSelected()){
             qr.graficarclientesConcurridos(Fechaincio, FechaFin, panelGrafico);
         }else if(btClientesNuevos.isSelected()){
+            qr.graficarclientesNuevos(Fechaincio, FechaFin, panelGrafico);
         }else if(btProductosmas.isSelected()){
         }else if(btProductosmenos.isSelected()){
         }
@@ -711,6 +712,10 @@ public class Administrador extends javax.swing.JFrame {
         seleccionarcombofecha();
         Obtenerfecha();
     }//GEN-LAST:event_ComboElecionActionPerformed
+
+    private void btClientesNuevosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btClientesNuevosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btClientesNuevosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -778,7 +783,6 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JRadioButton jRadioButton6;
     private javax.swing.JLabel lblHasta;
     private javax.swing.JLabel lbldesde;
     private javax.swing.JTextField lista;

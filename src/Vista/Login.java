@@ -1,6 +1,7 @@
 
 package Vista;
 
+
 import java.awt.Color;
 import Modelo.*;
 import java.sql.SQLException;
