@@ -204,7 +204,7 @@ public class Adm_Suministros extends javax.swing.JFrame {
         btnAgregar.setBackground(new java.awt.Color(255, 0, 0));
         btnAgregar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
-        btnAgregar.setText("Agregar");
+        btnAgregar.setText("Actualizar");
         btnAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
