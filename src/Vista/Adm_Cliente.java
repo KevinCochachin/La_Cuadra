@@ -40,14 +40,14 @@ public class Adm_Cliente extends javax.swing.JFrame {
        Querry dao = new Querry();
         modelo = (DefaultTableModel) Tabla2.getModel();
         List<cliente> lista = dao.cliente();
-        Object[] objeto = new Object[6];
+        Object[] objeto = new Object[5];
         for (int i = 0; i < lista.size(); i++) {
             objeto[0] = lista.get(i).getID();
             objeto[1] = lista.get(i).getNombre();
             objeto[2] = lista.get(i).getApellido();
             objeto[3] = lista.get(i).getDni();
             objeto[4] = lista.get(i).getTelefono();
-            objeto[5] = lista.get(i).getFecha();
+            
             modelo.addRow(objeto);    
    } 
         Tabla2.setModel(modelo);
@@ -56,7 +56,7 @@ public class Adm_Cliente extends javax.swing.JFrame {
         Tabla2.getColumnModel().getColumn(2).setPreferredWidth(60);
         Tabla2.getColumnModel().getColumn(3).setPreferredWidth(60);
         Tabla2.getColumnModel().getColumn(4).setPreferredWidth(60);
-        Tabla2.getColumnModel().getColumn(5).setPreferredWidth(100);
+        
    }
      
     @SuppressWarnings("unchecked")
@@ -94,7 +94,7 @@ public class Adm_Cliente extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nombre", "Apellido", "DNI", "Telefono", "Fecha_Registro"
+                "ID", "Nombre", "Apellido", "DNI", "Telefono"
             }
         ));
         Tabla2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));

@@ -108,9 +108,8 @@ public class Adm_Actividades extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
-        jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        Tabla.setBackground(new java.awt.Color(51, 153, 255));
         Tabla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Tabla.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Tabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -185,7 +184,7 @@ public class Adm_Actividades extends javax.swing.JFrame {
         inicio.setText("INICIO");
         inicio.setAutoscrolls(false);
         inicio.setBorder(null);
-        inicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        inicio.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         inicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 inicioMouseClicked(evt);
@@ -213,7 +212,7 @@ public class Adm_Actividades extends javax.swing.JFrame {
         lista.setText("LISTA DE USUARIOS");
         lista.setBorder(null);
         lista.setCaretColor(new java.awt.Color(255, 255, 255));
-        lista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lista.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lista.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listaMouseClicked(evt);
@@ -238,7 +237,7 @@ public class Adm_Actividades extends javax.swing.JFrame {
         cliente.setText("CLIENTE");
         cliente.setBorder(null);
         cliente.setCaretColor(new java.awt.Color(255, 255, 255));
-        cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 clienteMouseClicked(evt);
@@ -264,7 +263,7 @@ public class Adm_Actividades extends javax.swing.JFrame {
         actividades.setText("ACTIVIDADES");
         actividades.setBorder(null);
         actividades.setCaretColor(new java.awt.Color(255, 255, 255));
-        actividades.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        actividades.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         actividades.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 actividadesMouseClicked(evt);
@@ -289,7 +288,7 @@ public class Adm_Actividades extends javax.swing.JFrame {
         cerrar.setText("CERRAR SECCION");
         cerrar.setBorder(null);
         cerrar.setCaretColor(new java.awt.Color(255, 255, 255));
-        cerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cerrarMouseClicked(evt);
@@ -314,7 +313,7 @@ public class Adm_Actividades extends javax.swing.JFrame {
         listapoducto.setText("LISTA DE PRODUCTOS");
         listapoducto.setBorder(null);
         listapoducto.setCaretColor(new java.awt.Color(255, 255, 255));
-        listapoducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        listapoducto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         listapoducto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listapoductoMouseClicked(evt);

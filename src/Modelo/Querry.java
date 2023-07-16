@@ -530,7 +530,7 @@ public class Querry extends ConexionMysql {
         conectarBDD();
         List<cliente> datos = new ArrayList<>();
         try {
-            ps = conexion.prepareStatement("SELECT cliente.*, pedido.Fecha FROM cliente LEFT JOIN pedido ON pedido.idCliente=cliente.idCliente where not cliente.dni=0 group by cliente.idCliente ");
+            ps = conexion.prepareStatement("SELECT * FROM cliente where not cliente.dni=0 group by cliente.idCliente ");
 
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -540,7 +540,6 @@ public class Querry extends ConexionMysql {
                 p.setApellido(rs.getString(3));
                 p.setDni(rs.getInt(4));
                 p.setTelefono(rs.getInt(5));
-                p.setFecha(rs.getString(6));
                 datos.add(p);
             }
 

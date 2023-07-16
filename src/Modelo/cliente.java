@@ -16,15 +16,15 @@ public class cliente {
     private String Apellido;
     private int dni;
     private int telefono;
-    private String fecha;
+    
 
-    public cliente(int ID, String Nombre, String Apellido, int dni, int telefono, String fecha) {
+    public cliente(int ID, String Nombre, String Apellido, int dni, int telefono) {
         this.ID = ID;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.dni = dni;
         this.telefono = telefono;
-        this.fecha=fecha;
+        
     }
 
     public cliente() {
@@ -70,14 +70,7 @@ public class cliente {
         this.telefono = telefono;
     }
 
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-    
+ 
  
     
 }
