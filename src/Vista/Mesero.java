@@ -63,9 +63,9 @@ public class Mesero extends javax.swing.JFrame {
             //Cliente
             datos[5] = rs.getString(19);
              //Chef
-            datos[6] = rs.getString(24);
+            datos[6] = rs.getString(25);
             //Atendido
-            datos [7] = rs.getString(30);
+            datos [7] = rs.getString(31);
             //Descripcion
             datos[8] = rs.getString(5);
             modelo.addRow(datos);

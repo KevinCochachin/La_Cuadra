@@ -30,7 +30,9 @@ public class Adm_Suministros extends javax.swing.JFrame {
         cargar(jSumTable5);
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/Icon.png")).getImage());
         this.setTitle("Administrador>>Suministro");
+        this.setLocationRelativeTo(null);
         ID=s.generarIdSuministroS();
+        btnAgregar.setEnabled(false);
     }
     
     void limpiarTabla() {
@@ -116,10 +118,10 @@ public class Adm_Suministros extends javax.swing.JFrame {
         JTxtCantidad = new javax.swing.JTextField();
         JTxtDescripcion = new javax.swing.JTextField();
         JTxtID = new javax.swing.JLabel();
-        btnmodificarSum = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
         btneliminarSum = new javax.swing.JButton();
-        btnNuevo = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -157,10 +159,6 @@ public class Adm_Suministros extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel6.setText("Descripcion:");
-
-        JtxtNombre.setEditable(false);
-
-        JTxtDescripcion.setEditable(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -203,14 +201,14 @@ public class Adm_Suministros extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        btnmodificarSum.setBackground(new java.awt.Color(255, 0, 0));
-        btnmodificarSum.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnmodificarSum.setForeground(new java.awt.Color(255, 255, 255));
-        btnmodificarSum.setText("Modificar");
-        btnmodificarSum.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnmodificarSum.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregar.setBackground(new java.awt.Color(255, 0, 0));
+        btnAgregar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregar.setText("Agregar");
+        btnAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnmodificarSumActionPerformed(evt);
+                btnAgregarActionPerformed(evt);
             }
         });
 
@@ -218,7 +216,7 @@ public class Adm_Suministros extends javax.swing.JFrame {
         btnRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setText("Registrar");
-        btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
@@ -229,21 +227,21 @@ public class Adm_Suministros extends javax.swing.JFrame {
         btneliminarSum.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btneliminarSum.setForeground(new java.awt.Color(255, 255, 255));
         btneliminarSum.setText("Eliminar");
-        btneliminarSum.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btneliminarSum.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btneliminarSum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btneliminarSumActionPerformed(evt);
             }
         });
 
-        btnNuevo.setBackground(new java.awt.Color(255, 0, 0));
-        btnNuevo.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnNuevo.setForeground(new java.awt.Color(255, 255, 255));
-        btnNuevo.setText("Nuevo");
-        btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizar.setBackground(new java.awt.Color(255, 0, 0));
+        btnActualizar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        btnActualizar.setText("Actualizar");
+        btnActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNuevoActionPerformed(evt);
+                btnActualizarActionPerformed(evt);
             }
         });
 
@@ -256,11 +254,11 @@ public class Adm_Suministros extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -268,7 +266,7 @@ public class Adm_Suministros extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btneliminarSum, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(125, 125, 125)
-                        .addComponent(btnmodificarSum, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(24, 24, 24))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -277,16 +275,16 @@ public class Adm_Suministros extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnmodificarSum, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btneliminarSum, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -310,11 +308,19 @@ public class Adm_Suministros extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
                     
-    private void btnmodificarSumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarSumActionPerformed
-                 ActualizarRegistroSum();
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+                 
+        Historial_Suministros historial = new Historial_Suministros();
+        historial.setCod(JTxtID.getText());
+        historial.setNom(JtxtNombre.getText());
+        historial.setCantidad(JTxtCantidad.getText());
+        historial.setVisible(true);
+        
+        
+        /*ActualizarRegistroSum();
                  limpiarTabla();
-                 cargar(jSumTable5);
-    }//GEN-LAST:event_btnmodificarSumActionPerformed
+                 cargar(jSumTable5);*/
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         
@@ -349,12 +355,12 @@ public class Adm_Suministros extends javax.swing.JFrame {
            cargar(jSumTable5);
     }//GEN-LAST:event_btneliminarSumActionPerformed
 
-    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
 
-        JtxtNombre.setEditable(true);
-        JTxtDescripcion.setEditable(true);
+        limpiarTabla();
+        cargar(jSumTable5);
 
-    }//GEN-LAST:event_btnNuevoActionPerformed
+    }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void jSumTable5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSumTable5MouseClicked
        int filaseleccionada=jSumTable5.rowAtPoint(evt.getPoint());
@@ -363,6 +369,7 @@ public class Adm_Suministros extends javax.swing.JFrame {
         JtxtNombre.setText(jSumTable5.getValueAt(filaseleccionada, 1).toString());
         JTxtCantidad.setText(jSumTable5.getValueAt(filaseleccionada, 2).toString());
         JTxtDescripcion.setText(jSumTable5.getValueAt(filaseleccionada, 3).toString());
+        btnAgregar.setEnabled(true);
     }//GEN-LAST:event_jSumTable5MouseClicked
 
 
@@ -407,10 +414,10 @@ public class Adm_Suministros extends javax.swing.JFrame {
     private javax.swing.JTextField JTxtDescripcion;
     private javax.swing.JLabel JTxtID;
     private javax.swing.JTextField JtxtNombre;
-    public javax.swing.JButton btnNuevo;
+    public javax.swing.JButton btnActualizar;
+    public javax.swing.JButton btnAgregar;
     public javax.swing.JButton btnRegistrar;
     public javax.swing.JButton btneliminarSum;
-    public javax.swing.JButton btnmodificarSum;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

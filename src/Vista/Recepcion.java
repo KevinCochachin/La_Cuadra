@@ -56,7 +56,7 @@ public class Recepcion extends javax.swing.JFrame {
      
     public Recepcion(int idEmpleado, String NombreVentana,int TipoEmpleado) {
          initComponents();
-         //setIconImage(new ImageIcon(getClass().getResource("/Imagenes/Icon.png")).getImage());
+         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/Icon.png")).getImage());
         this.setTitle("Recepcion de Clientes");
         this.setLocationRelativeTo(null);
         cargar(TablaCliente);

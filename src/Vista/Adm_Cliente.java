@@ -40,21 +40,23 @@ public class Adm_Cliente extends javax.swing.JFrame {
        Querry dao = new Querry();
         modelo = (DefaultTableModel) Tabla2.getModel();
         List<cliente> lista = dao.cliente();
-        Object[] objeto = new Object[5];
+        Object[] objeto = new Object[6];
         for (int i = 0; i < lista.size(); i++) {
             objeto[0] = lista.get(i).getID();
             objeto[1] = lista.get(i).getNombre();
             objeto[2] = lista.get(i).getApellido();
             objeto[3] = lista.get(i).getDni();
             objeto[4] = lista.get(i).getTelefono();
+            objeto[5] = lista.get(i).getFecha();
             modelo.addRow(objeto);    
    } 
         Tabla2.setModel(modelo);
-        Tabla2.getColumnModel().getColumn(0).setPreferredWidth(100);
+        Tabla2.getColumnModel().getColumn(0).setPreferredWidth(20);
         Tabla2.getColumnModel().getColumn(1).setPreferredWidth(40);
         Tabla2.getColumnModel().getColumn(2).setPreferredWidth(60);
         Tabla2.getColumnModel().getColumn(3).setPreferredWidth(60);
         Tabla2.getColumnModel().getColumn(4).setPreferredWidth(60);
+        Tabla2.getColumnModel().getColumn(5).setPreferredWidth(100);
    }
      
     @SuppressWarnings("unchecked")
@@ -92,7 +94,7 @@ public class Adm_Cliente extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nombre", "Apellido", "DNI", "Fecha"
+                "ID", "Nombre", "Apellido", "DNI", "Telefono", "Fecha_Registro"
             }
         ));
         Tabla2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -108,11 +110,11 @@ public class Adm_Cliente extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(301, 301, 301)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(254, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 753, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 784, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,7 +155,7 @@ public class Adm_Cliente extends javax.swing.JFrame {
         inicio2.setText("INICIO");
         inicio2.setAutoscrolls(false);
         inicio2.setBorder(null);
-        inicio2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        inicio2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         inicio2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 inicio2MouseClicked(evt);
@@ -181,7 +183,7 @@ public class Adm_Cliente extends javax.swing.JFrame {
         lista.setText("LISTA DE USUARIOS");
         lista.setBorder(null);
         lista.setCaretColor(new java.awt.Color(255, 255, 255));
-        lista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lista.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lista.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listaMouseClicked(evt);
@@ -207,7 +209,7 @@ public class Adm_Cliente extends javax.swing.JFrame {
         cliente.setText("CLIENTE");
         cliente.setBorder(null);
         cliente.setCaretColor(new java.awt.Color(255, 255, 255));
-        cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 clienteMouseClicked(evt);
@@ -232,7 +234,7 @@ public class Adm_Cliente extends javax.swing.JFrame {
         actividades.setText("ACTIVIDADES");
         actividades.setBorder(null);
         actividades.setCaretColor(new java.awt.Color(255, 255, 255));
-        actividades.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        actividades.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         actividades.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 actividadesMouseClicked(evt);
@@ -257,7 +259,7 @@ public class Adm_Cliente extends javax.swing.JFrame {
         cerrar.setText("CERRAR SECCION");
         cerrar.setBorder(null);
         cerrar.setCaretColor(new java.awt.Color(255, 255, 255));
-        cerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cerrarMouseClicked(evt);
@@ -282,7 +284,7 @@ public class Adm_Cliente extends javax.swing.JFrame {
         listapoducto.setText("LISTA DE PRODUCTOS");
         listapoducto.setBorder(null);
         listapoducto.setCaretColor(new java.awt.Color(255, 255, 255));
-        listapoducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        listapoducto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         listapoducto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listapoductoMouseClicked(evt);

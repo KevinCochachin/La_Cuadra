@@ -530,7 +530,7 @@ public class Querry extends ConexionMysql {
         conectarBDD();
         List<cliente> datos = new ArrayList<>();
         try {
-            ps = conexion.prepareStatement("SELECT cliente.*, pedido.Fecha FROM cliente LEFT JOIN pedido ON pedido.idCliente=cliente.idCliente");
+            ps = conexion.prepareStatement("SELECT cliente.*, pedido.Fecha FROM cliente LEFT JOIN pedido ON pedido.idCliente=cliente.idCliente where not cliente.dni=0 group by cliente.idCliente ");
 
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -540,6 +540,7 @@ public class Querry extends ConexionMysql {
                 p.setApellido(rs.getString(3));
                 p.setDni(rs.getInt(4));
                 p.setTelefono(rs.getInt(5));
+                p.setFecha(rs.getString(6));
                 datos.add(p);
             }
 
@@ -1062,15 +1063,13 @@ public class Querry extends ConexionMysql {
      
  public void ActualizarRegistroS(registro_Suministro S ){
         conectarBDD();
-        String sql="update suministros set Nombre=?,cantidad=?,Descripcion=? where idSuministro=?";     
+        String sql="update suministros set cantidad=? where idSuministro=?";     
         try {
             
-           ps = conexion.prepareStatement(sql);                        
-            
-            ps.setString(1,S.getNombre());
-            ps.setDouble(2,S.getCantidad());
-            ps.setString(3,S.getDescripcion());
-            ps.setInt(4,S.getID());
+           ps = conexion.prepareStatement(sql);
+           
+            ps.setDouble(1,S.getCantidad());
+            ps.setInt(2,S.getID());
             
             
             ps.executeUpdate(); 
@@ -1094,6 +1093,51 @@ public class Querry extends ConexionMysql {
             JOptionPane.showMessageDialog(null, "Error al eliminar registro" + e.getMessage());
         }
     }
-
-
+        
+        public int generarIdHistorial() {
+        conectarBDD();
+        int idHis = 0;
+        try {
+            st = conexion.createStatement();
+            String querry = "SELECT MAX(historial_suministro.id_historial) FROM historial_suministro";
+            rs = st.executeQuery(querry);
+            if (rs.next()) {
+                idHis = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+        }
+        idHis += 1;
+        while (consultarIdLista(idHis) != 0) {
+            idHis += 1;
+        }
+        return idHis;
+    }
+        
+        public List ListarHistorial (){
+            conectarBDD();
+            List<Historial_Sum> datos= new ArrayList<>();
+            
+            try {
+                st=conexion.createStatement();
+                String listar="Select * from historial_suministro";
+                rs=st.executeQuery(listar);
+                
+                while (rs.next()) {
+                    Historial_Sum h =  new Historial_Sum();
+                    h.setIdHistorial(rs.getInt(1));
+                    h.setIdSuministro(rs.getInt(2));
+                    h.setNombre(rs.getString(3));
+                    h.setCantidadA(rs.getInt(4));
+                    h.setCantidadE(rs.getInt(5));
+                    h.setFecha(rs.getString(6));
+                    datos.add(h);
+                }
+                
+            } catch (Exception e) {
+            }
+            
+            return datos;
+        }
+        
+     
 }
