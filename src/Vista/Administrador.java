@@ -69,7 +69,7 @@ public class Administrador extends javax.swing.JFrame {
         String FechaFin="";
         //
         Date fecha=new Date();
-        SimpleDateFormat formatofecha=new SimpleDateFormat("YYYY-MM-dd");
+        SimpleDateFormat formatofecha=new SimpleDateFormat("yyyy-MM-dd");
         FechaFinSplit=formatofecha.format(fecha);
         LocalDate localtime=LocalDate.parse(FechaFinSplit);
         switch (ComboElecion.getSelectedIndex()) {
@@ -81,12 +81,12 @@ public class Administrador extends javax.swing.JFrame {
                 Fechainicio=formatofecha.format(fecha);
                 //restar 7 dias
                 
-                FechaFin=localtime.minusDays(7).toString();
+                FechaFin=localtime.minusDays(6).toString();
             break;
             case 2:
                 Fechainicio=formatofecha.format(fecha);
                 //restar 15 dias
-                FechaFin=localtime.minusDays(15).toString();
+                FechaFin=localtime.minusDays(13).toString();
             break;
             case 3:
                 Fechainicio=formatofecha.format(fecha);
@@ -684,9 +684,11 @@ public class Administrador extends javax.swing.JFrame {
         }else if(btClientesrecurrentes.isSelected()){
             qr.graficarclientesConcurridos(Fechaincio, FechaFin, panelGrafico);
         }else if(btClientesNuevos.isSelected()){
+            qr.graficarClientesMas(Fechaincio, FechaFin, panelGrafico);
         }else if(btProductosmas.isSelected()){
             qr.graficarProductosMas(Fechaincio, FechaFin, panelGrafico);
         }else if(btProductosmenos.isSelected()){
+            qr.graficarProductosMenos(Fechaincio, FechaFin, panelGrafico);
         }
         
         

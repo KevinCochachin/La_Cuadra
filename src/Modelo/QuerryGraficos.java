@@ -345,7 +345,7 @@ public class QuerryGraficos extends ConexionMysql {
 
         return fechas;
     }
-//==========================================GRAFICAR PRDOCTUS MAS CONSUMIDOS===============================================================
+//==========================================GRAFICAR PRODUCTOS MAS CONSUMIDOS===============================================================
     public void graficarProductosMas(String fechainicio, String Fechafin, Panel panel) {
         DefaultCategoryDataset datos = new DefaultCategoryDataset();
         String cantidad [][]=consultarproductos();
@@ -355,7 +355,7 @@ public class QuerryGraficos extends ConexionMysql {
             Top10[i][0]="";
             Top10[i][1]="0";
         }
-        int cantidadrepetidas=0;
+        
         for (int i = 0; i < cantidad.length; i++) {
             for (int j = 0; j < 2; j++) {
                 if (j == 0) {
@@ -365,7 +365,8 @@ public class QuerryGraficos extends ConexionMysql {
                 }
             }
             //query 
-            String query = "SELECT SUM(Cantidad) FROM lista WHERE idProducto='"+id+"'";
+            String query = "SELECT SUM(Cantidad) FROM lista JOIN pedido on lista.idPedido=pedido.idPedido "
+                    + "WHERE (lista.idProducto='"+id+"') and (pedido.Fecha BETWEEN '"+fechainicio+"' AND '"+Fechafin+ "')";
             try {
                 conectarBDD();
                 statement = conexion.createStatement();
@@ -415,6 +416,204 @@ public class QuerryGraficos extends ConexionMysql {
             conectarBDD();
             statement = conexion.createStatement();
             String query="SELECT idProducto,Nombre FROM producto";
+            rs = statement.executeQuery(query);
+            //cantidad productos
+            int extension = 0;
+            while (rs.next()) {
+               extension+=1;
+            }
+            //agregar productos
+            ResultSet r = statement.executeQuery(query);
+            productos=new String[extension][2];
+            while (r.next()) {
+                productos[i][0]=r.getString(1);
+                productos[i][1]=r.getString(2);
+                i++;
+            }
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
+        cerrarDB();
+        return productos;
+    }
+    //
+    //
+     //
+    // //
+    //
+     //
+    // //
+    // //
+    // //
+    //
+    
+    
+    
+    
+    //==========================================GRAFICAR PRODUCTOS MENOS CONSUMIDOS===============================================================
+   
+
+    //Graficar
+    public void graficarPro(DefaultCategoryDataset datos, Panel panel) {
+        //Creacion de Grafico
+        JFreeChart garficos = ChartFactory.createBarChart(
+                "GRAFICO PRODUCTO", "PLATOS", "CANTIDAD",
+                datos, PlotOrientation.VERTICAL,
+                true, true, false);
+        //Cambiar COLORES
+        garficos.setBackgroundPaint(Color.white);
+        //color fondo
+        CategoryPlot plot = garficos.getCategoryPlot();
+        plot.setBackgroundPaint(Color.white);
+        //Dar color a las barras
+        BarRenderer renderer = (BarRenderer) plot.getRenderer();
+        GradientPaint gp = new GradientPaint(0.0f, 0.0f, Color.BLACK, 0.0f, 0.0f, new Color(20, 129, 192));
+        renderer.setSeriesPaint(0, gp);
+        //Agregar grafico a Panel
+        ChartPanel chartpanel = new ChartPanel(garficos);
+        chartpanel.setMouseWheelEnabled(true);
+        chartpanel.setPreferredSize(new Dimension(870, 345));
+        panel.setLayout(new BorderLayout());
+        panel.add(chartpanel, BorderLayout.NORTH);
+
+    }
+//
+    //listar a todos los clientes
+    public int[] listaIdPro() {
+        conectarBDD();
+        int idClientes[] = {0};
+        try {
+            statement = conexion.createStatement();
+            //consultar cantidad de pedidos
+            String querycantidad = "SELECT count(*) FROM producto ";
+            rs = statement.executeQuery(querycantidad);
+            while (rs.next()) {
+                idClientes = new int[rs.getInt(1)];
+            }
+            //guardar ids
+            String query = "SELECT producto.idProducto FROM producto";
+            rs = statement.executeQuery(query);
+            int i = 0;
+            while (rs.next()) {
+                idClientes[i] = rs.getInt(1);
+                i++;
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
+        cerrarDB();
+        return idClientes;
+    }
+
+    //Graficar clientes
+    public void graficarProductosMenos(String fechainicio, String Fechafin, Panel panel) {
+        DefaultCategoryDataset datos = new DefaultCategoryDataset();
+        for (int i = 0; i < listaIdPro().length; i++) {
+            
+            //query Factura
+            String query = "SELECT producto.idProducto, producto.Nombre,SUM(lista.Cantidad) AS cantidad from lista "
+                    + "JOIN pedido ON (lista.idPedido=pedido.idPedido) JOIN producto ON (producto.idProducto=lista.idProducto)"
+                    + "where (pedido.Fecha BETWEEN '" + fechainicio + "' AND '" + Fechafin + "')"
+                    + " AND (producto.idProducto='" + listaIdPro()[i] + "') ";
+            
+             
+            try {
+                conectarBDD();
+                statement = conexion.createStatement();
+                
+                //Factura 
+                rs = statement.executeQuery(query);
+                while (rs.next()) {
+                    if (rs.getInt(3) != 0) {
+                        if (rs.getString(1).equals(" ")) {
+                            datos.setValue(rs.getInt(3) , "Cantidad de Visitas",  rs.getString(2));
+                        } else {
+                            datos.setValue(rs.getInt(3) , "Cantidad de Visitas",  rs.getString(2));
+                        }
+                    }
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Error: " + e);
+            }
+
+        }
+        cerrarDB();
+        //graficar
+        graficarvertical(datos, panel,"Productos consumidos","Productos");
+    }
+    
+    //==========================================GRAFICAR CLIENTES MAS RECURRENTES===============================================================
+    public void graficarClientesMas(String fechainicio, String Fechafin, Panel panel) {
+        DefaultCategoryDataset datos = new DefaultCategoryDataset();
+        String cantidad [][]=consultarClientes();
+        String id="", nombre=""; 
+        String Top10[][] = new String[10][2];
+        for (int i = 0; i < 10; i++) {
+            Top10[i][0]="";
+            Top10[i][1]="0";
+        }
+        
+        for (int i = 0; i < cantidad.length; i++) {
+            for (int j = 0; j < 2; j++) {
+                if (j == 0) {
+                    id=cantidad[i][j];
+                } else if (j == 1) {
+                    nombre=cantidad[i][j];
+                }
+            }
+            //query 
+            String query = "SELECT count(cliente.idCliente) FROM pedido JOIN cliente on cliente.idCliente=pedido.idCliente "
+                    + "WHERE (cliente.idCliente='"+id+"') and (pedido.Fecha BETWEEN '"+fechainicio+"' AND '"+Fechafin+ "')";
+            try {
+                conectarBDD ();
+                statement = conexion.createStatement();
+                rs = statement.executeQuery(query);
+                //rellenar 
+                while (rs.next()) {
+                    if (rs.getInt(1) > 0) {
+                        //System.out.println(rs.getInt(1) +"nombre "+nombre);
+                        for (int j = 0; j < 10; j++) {
+                            if (rs.getInt(1) > Integer.parseInt(Top10[j][1])) {
+                                int a = i + 1;
+                                //System.out.println(id+" "+Top10[j][1]);
+                                if (i < 9) {
+                                    for (int k = 9; k > a; k--) {
+                                        Top10[k][0] = Top10[k - 1][0];
+                                        Top10[k][1] = Top10[k - 1][1];
+                                    }
+
+                                }
+                                Top10[j][0] = nombre;
+                                Top10[j][1] = String.valueOf(rs.getInt(1));
+                                break;
+                            };
+                        }
+                    }
+                }
+                
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Error: " + e);
+            }
+
+        }
+        for (int j = 0; j < 10; j++) {
+            datos.setValue(Integer.parseInt(Top10[j][1]), "Cantidad", Top10[j][0]);
+        }
+        cerrarDB();
+        //graficar
+        
+        graficarvertical(datos, panel,"clientes mas recurrentes","Clientes");
+    }
+
+    //productos
+    public String[][] consultarClientes() {
+        String productos[][] = null;
+        int i=0;
+        try {
+            conectarBDD();
+            statement = conexion.createStatement();
+            String query="SELECT idCliente,Nombre FROM cliente";
             rs = statement.executeQuery(query);
             //cantidad productos
             int extension = 0;

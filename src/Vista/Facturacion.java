@@ -162,7 +162,7 @@ public class Facturacion extends javax.swing.JFrame implements Printable {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 255));
 
-        panelFactura.setBackground(new java.awt.Color(0, 204, 204));
+        panelFactura.setBackground(new java.awt.Color(255, 255, 255));
         panelFactura.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Black", 3, 24)); // NOI18N
@@ -268,7 +268,7 @@ public class Facturacion extends javax.swing.JFrame implements Printable {
         });
         jScrollPane1.setViewportView(Tabla);
 
-        jPanel4.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -319,7 +319,6 @@ public class Facturacion extends javax.swing.JFrame implements Printable {
                 .addGap(24, 24, 24))
         );
 
-        btnBuscar.setBackground(new java.awt.Color(0, 204, 204));
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/consulta.png"))); // NOI18N
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -336,7 +335,7 @@ public class Facturacion extends javax.swing.JFrame implements Printable {
 
         txtNombreCliente.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
 
-        btnGuardar.setBackground(new java.awt.Color(0, 204, 204));
+        btnGuardar.setBackground(new java.awt.Color(0, 255, 153));
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agregar-archivo.png"))); // NOI18N
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -344,7 +343,7 @@ public class Facturacion extends javax.swing.JFrame implements Printable {
             }
         });
 
-        btnSalir.setBackground(new java.awt.Color(0, 204, 204));
+        btnSalir.setBackground(new java.awt.Color(255, 51, 51));
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salida.png"))); // NOI18N
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -352,7 +351,7 @@ public class Facturacion extends javax.swing.JFrame implements Printable {
             }
         });
 
-        btnImprimir.setBackground(new java.awt.Color(0, 204, 204));
+        btnImprimir.setBackground(new java.awt.Color(0, 255, 153));
         btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/carpeta.png"))); // NOI18N
         btnImprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
